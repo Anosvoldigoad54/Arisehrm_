@@ -1,0 +1,307 @@
+{
+  "system": {
+    "name": "Arise HRM",
+    "version": "2.0.0",
+    "environment": "development",
+    "features": {
+      "2fa_enabled": false,
+      "geo_attendance": true,
+      "photo_verification": true,
+      "real_time_notifications": true,
+      "multi_language": false,
+      "dark_mode": true,
+      "mobile_app": true
+    }
+  },
+  "authentication": {
+    "session_timeout": 600,
+    "password_policy": {
+      "min_length": 8,
+      "require_uppercase": true,
+      "require_lowercase": true,
+      "require_numbers": true,
+      "require_special_chars": false
+    },
+    "login_attempts": {
+      "max_attempts": 5,
+      "lockout_duration": 300
+    }
+  },
+  "roles": {
+    "super_admin": {
+      "level": 7,
+      "permissions": ["*"],
+      "dashboard": "admin"
+    },
+    "admin": {
+      "level": 6,
+      "permissions": ["employees.*", "attendance.*", "leave.*", "payroll.*", "reports.*"],
+      "dashboard": "admin"
+    },
+    "hr": {
+      "level": 5,
+      "permissions": ["employees.*", "hiring.*", "performance.*", "training.*", "compliance.*"],
+      "dashboard": "hr"
+    },
+    "manager": {
+      "level": 4,
+      "permissions": ["employees.view", "attendance.view", "leave.approve", "performance.*"],
+      "dashboard": "manager"
+    },
+    "team_lead": {
+      "level": 3,
+      "permissions": ["employees.view", "attendance.view", "leave.view"],
+      "dashboard": "team_lead"
+    },
+    "employee": {
+      "level": 2,
+      "permissions": ["profile.edit", "attendance.self", "leave.request"],
+      "dashboard": "employee"
+    },
+    "intern": {
+      "level": 1,
+      "permissions": ["profile.view", "attendance.self"],
+      "dashboard": "employee"
+    }
+  },
+  "modules": {
+    "dashboard": {
+      "enabled": true,
+      "widgets": {
+        "attendance_summary": true,
+        "leave_balance": true,
+        "performance_metrics": true,
+        "announcements": true,
+        "quick_actions": true
+      }
+    },
+    "employee_management": {
+      "enabled": true,
+      "features": {
+        "bulk_import": true,
+        "export_data": true,
+        "advanced_search": true,
+        "profile_photos": true
+      }
+    },
+    "attendance": {
+      "enabled": true,
+      "geo_fencing": {
+        "enabled": true,
+        "radius_meters": 100,
+        "allowed_locations": []
+      },
+      "photo_verification": {
+        "enabled": true,
+        "required_for_roles": ["security", "field_worker"]
+      },
+      "auto_clock_out": {
+        "enabled": true,
+        "time": "23:59"
+      }
+    },
+    "leave_management": {
+      "enabled": true,
+      "leave_types": [
+        {
+          "id": "annual",
+          "name": "Annual Leave",
+          "days_per_year": 21,
+          "carry_forward": true,
+          "max_carry_forward": 5
+        },
+        {
+          "id": "sick",
+          "name": "Sick Leave",
+          "days_per_year": 10,
+          "carry_forward": false
+        },
+        {
+          "id": "personal",
+          "name": "Personal Leave",
+          "days_per_year": 3,
+          "carry_forward": false
+        }
+      ],
+      "approval_workflow": {
+        "employee": ["manager", "hr"],
+        "manager": ["hr", "admin"],
+        "hr": ["admin"]
+      }
+    },
+    "performance_management": {
+      "enabled": true,
+      "review_cycles": [
+        {
+          "name": "Annual Review",
+          "frequency": "yearly",
+          "month": 12
+        },
+        {
+          "name": "Mid-year Review",
+          "frequency": "yearly",
+          "month": 6
+        }
+      ],
+      "goal_categories": [
+        "professional_development",
+        "project_delivery",
+        "team_collaboration",
+        "innovation",
+        "leadership"
+      ]
+    },
+    "hiring": {
+      "enabled": true,
+      "application_stages": [
+        "applied",
+        "screening",
+        "phone_interview",
+        "technical_interview",
+        "final_interview",
+        "offer",
+        "hired",
+        "rejected"
+      ],
+      "auto_email_templates": true
+    },
+    "training": {
+      "enabled": true,
+      "categories": [
+        "technical_skills",
+        "leadership",
+        "compliance",
+        "soft_skills",
+        "safety",
+        "onboarding"
+      ],
+      "certification_tracking": true
+    },
+    "payroll": {
+      "enabled": true,
+      "pay_cycles": [
+        {
+          "name": "Monthly",
+          "frequency": "monthly",
+          "cutoff_day": 25,
+          "pay_day": 1
+        }
+      ],
+      "tax_calculation": true,
+      "statutory_compliance": true
+    },
+    "expenses": {
+      "enabled": true,
+      "categories": [
+        "travel",
+        "meals",
+        "accommodation",
+        "office_supplies",
+        "training",
+        "communication",
+        "medical",
+        "other"
+      ],
+      "receipt_required": true,
+      "approval_limits": {
+        "employee": 500,
+        "manager": 2000,
+        "hr": 5000
+      }
+    },
+    "compliance": {
+      "enabled": true,
+      "policy_categories": [
+        "hr",
+        "security",
+        "safety",
+        "code_of_conduct",
+        "financial",
+        "it",
+        "legal"
+      ],
+      "mandatory_acknowledgment": true,
+      "audit_trail": true
+    },
+    "announcements": {
+      "enabled": true,
+      "types": [
+        "general",
+        "urgent",
+        "policy",
+        "event",
+        "system"
+      ],
+      "target_audiences": [
+        "all",
+        "department",
+        "role",
+        "custom"
+      ]
+    }
+  },
+  "ui": {
+    "theme": {
+      "primary_color": "#1976d2",
+      "secondary_color": "#dc004e",
+      "sidebar_width": 220,
+      "sidebar_mini_width": 70
+    },
+    "navigation": {
+      "breadcrumbs": true,
+      "sidebar_collapsible": true,
+      "mobile_bottom_nav": true
+    },
+    "tables": {
+      "rows_per_page": [10, 25, 50, 100],
+      "default_rows": 25,
+      "export_formats": ["csv", "excel", "pdf"]
+    }
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_config": {
+        "host": "",
+        "port": 587,
+        "secure": false
+      }
+    },
+    "push": {
+      "enabled": true,
+      "web_push": true
+    },
+    "sms": {
+      "enabled": false,
+      "provider": ""
+    }
+  },
+  "integrations": {
+    "calendar": {
+      "google_calendar": false,
+      "outlook": false
+    },
+    "storage": {
+      "provider": "supabase",
+      "max_file_size": "10MB",
+      "allowed_types": ["pdf", "doc", "docx", "jpg", "png", "gif"]
+    },
+    "biometric": {
+      "fingerprint": false,
+      "face_recognition": false
+    }
+  },
+  "security": {
+    "data_encryption": true,
+    "audit_logging": true,
+    "session_management": true,
+    "ip_whitelist": [],
+    "cors_origins": ["http://localhost:3000"]
+  },
+  "backup": {
+    "enabled": true,
+    "frequency": "daily",
+    "retention_days": 30,
+    "storage_location": "cloud"
+  }
+}

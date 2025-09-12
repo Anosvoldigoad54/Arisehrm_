@@ -1,0 +1,82 @@
+{
+  "resumeAnalysis": {
+    "skillWeights": {
+      "JavaScript": 0.3,
+      "React": 0.25,
+      "TypeScript": 0.15,
+      "Node.js": 0.2,
+      "Python": 0.1
+    },
+    "experienceMultipliers": {
+      "junior": 0.8,
+      "mid": 1.0,
+      "senior": 1.2,
+      "lead": 1.4
+    },
+    "scoringThresholds": {
+      "excellent": 85,
+      "good": 70,
+      "average": 55,
+      "poor": 40
+    },
+    "recommendations": {
+      "fastTrack": "High potential candidate - fast-track interview process",
+      "technical": "Strong technical candidate - recommend for technical interview",
+      "screening": "Consider for phone screening first",
+      "standard": "Standard interview process"
+    }
+  },
+  "insights": {
+    "categories": [
+      "retention",
+      "performance", 
+      "attendance",
+      "skills",
+      "productivity",
+      "diversity"
+    ],
+    "severityLevels": {
+      "high": {
+        "color": "error",
+        "priority": 1,
+        "urgency": "immediate"
+      },
+      "medium": {
+        "color": "warning", 
+        "priority": 2,
+        "urgency": "within_month"
+      },
+      "low": {
+        "color": "success",
+        "priority": 3,
+        "urgency": "ongoing"
+      }
+    },
+    "impactLevels": ["Low", "Medium", "High", "Critical"],
+    "confidenceThresholds": {
+      "high": 85,
+      "medium": 70,
+      "low": 50
+    }
+  },
+  "performance": {
+    "cacheTimeout": 300000,
+    "batchSize": 50,
+    "enableVirtualization": true,
+    "lazyLoadThreshold": 20
+  },
+  "ui": {
+    "cardMaxWidth": "400px",
+    "gridBreakpoints": {
+      "xs": "100%",
+      "sm": "100%", 
+      "md": "48%",
+      "lg": "31%",
+      "xl": "23%"
+    },
+    "animations": {
+      "enabled": false,
+      "duration": 200
+    }
+  }
+}

@@ -1,0 +1,1 @@
+export { RecruitmentDashboard } from './RecruitmentDashboard'

@@ -1,0 +1,710 @@
+/**
+ * Consolidated CSS Architecture for Arise HRM
+ * This file consolidates all CSS imports to prevent conflicts and duplication
+ */
+
+/* =====================================================
+   FONTS & IMPORTS
+===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =====================================================
+   CSS RESET & FOUNDATIONS
+===================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  /* Fix mobile scrolling issues */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent zoom on iOS */
+  -webkit-text-size-adjust: 100%;
+  /* Fix layout on mobile */
+  min-width: 320px;
+}
+
+body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f8fafc;
+  color: #1f2937;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* =====================================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+===================================================== */
+:root {
+  /* === DENIM COLOR PALETTE === */
+  --denim-50: #f0f8fe;
+  --denim-100: #deedfb;
+  --denim-200: #c4e2f9;
+  --denim-300: #9bcff5;
+  --denim-400: #6bb5ef;
+  --denim-500: #4997e8;
+  --denim-600: #347bdc;
+  --denim-700: #2962c2;
+  --denim-800: #2954a4;
+  --denim-900: #264882;
+  --denim-950: #1b2d50;
+
+  /* === SEMANTIC COLORS === */
+  --color-primary: var(--denim-500);
+  --color-primary-dark: var(--denim-700);
+  --color-primary-light: var(--denim-300);
+  --color-secondary: var(--denim-400);
+  
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-info: var(--denim-400);
+
+  /* Role-based Colors */
+  --color-employee: var(--denim-400);
+  --color-team-lead: var(--denim-500);
+  --color-department-manager: var(--denim-600);
+  --color-hr-manager: var(--denim-700);
+  --color-administrator: var(--denim-800);
+  --color-super-admin: var(--denim-900);
+
+  /* === BACKGROUNDS === */
+  --bg-primary: var(--denim-950);
+  --bg-secondary: var(--denim-900);
+  --bg-tertiary: var(--denim-800);
+  --bg-light: var(--denim-50);
+  --bg-paper-light: #ffffff;
+  --bg-paper-dark: var(--denim-900);
+  --bg-surface: #f8fafc;
+  --bg-overlay: rgba(255, 255, 255, 0.9);
+
+  /* === TEXT COLORS === */
+  --text-primary-light: var(--denim-900);
+  --text-secondary-light: var(--denim-700);
+  --text-muted-light: var(--denim-500);
+  --text-primary-dark: var(--denim-100);
+  --text-secondary-dark: var(--denim-300);
+  --text-muted-dark: var(--denim-400);
+
+  /* === BORDERS & SHADOWS === */
+  --border-primary: rgba(73, 151, 232, 0.2);
+  --border-secondary: rgba(107, 181, 239, 0.15);
+  --border-light: #e5e7eb;
+  --border-muted: #d1d5db;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-primary: 0 8px 32px rgba(73, 151, 232, 0.15);
+  --shadow-hover: 0 20px 40px rgba(73, 151, 232, 0.25);
+
+  /* === GRADIENTS === */
+  --gradient-primary: linear-gradient(135deg, var(--denim-500) 0%, var(--denim-600) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--denim-400) 0%, var(--denim-500) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--denim-600) 0%, var(--denim-700) 50%, var(--denim-800) 100%);
+  --gradient-sidebar: linear-gradient(180deg, var(--denim-600) 0%, var(--denim-700) 50%, var(--denim-800) 100%);
+
+  /* === SPACING === */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  /* === BORDER RADIUS === */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  /* === TYPOGRAPHY === */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* === TRANSITIONS === */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* === Z-INDEX LAYERS === */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 9999;
+}
+
+/* =====================================================
+   DARK MODE SUPPORT
+===================================================== */
+body.dark {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+  color: var(--text-primary-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* =====================================================
+   MEDIA & RESPONSIVE ELEMENTS
+===================================================== */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =====================================================
+   UTILITY CLASSES
+===================================================== */
+
+/* === GLASS MORPHISM EFFECTS === */
+.glass-card {
+  background: linear-gradient(135deg, rgba(27, 45, 80, 0.9) 0%, rgba(38, 72, 130, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-primary);
+  transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.glass-card-light {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 254, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--denim-200);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.glass-card-light:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+  border-color: var(--denim-400);
+}
+
+/* === GRADIENT TEXT === */
+.gradient-text {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: var(--font-weight-extrabold);
+}
+
+.gradient-text-hero {
+  background: var(--gradient-hero);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: var(--font-weight-extrabold);
+}
+
+/* === INTERACTIVE ELEMENTS === */
+.interactive {
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.interactive:hover {
+  transform: translateY(-2px);
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+/* === FOCUS STATES === */
+.focus-ring:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* === ANIMATION CLASSES === */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* === ROLE-BASED STYLING === */
+.role-employee { border-left: 4px solid var(--color-employee); }
+.role-team-lead { border-left: 4px solid var(--color-team-lead); }
+.role-department-manager { border-left: 4px solid var(--color-department-manager); }
+.role-hr-manager { border-left: 4px solid var(--color-hr-manager); }
+.role-administrator { border-left: 4px solid var(--color-administrator); }
+.role-super-admin { border-left: 4px solid var(--color-super-admin); }
+
+/* =====================================================
+   COMPONENT STYLES
+===================================================== */
+
+/* === BUTTON COMPONENTS === */
+.btn-primary {
+  background: linear-gradient(45deg, #4997e8 30%, #347bdc 90%);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  border: none;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(45deg, #347bdc 30%, #2962c2 90%);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.btn-primary:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #4997e8;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: linear-gradient(45deg, #6bb5ef 30%, #4997e8 90%);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: linear-gradient(45deg, #4997e8 30%, #347bdc 90%);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #6bb5ef;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-success {
+  background-color: var(--color-success);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: #047857;
+  transform: translateY(-1px);
+}
+
+.btn-success:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-success);
+}
+
+.btn-success:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background-color: var(--color-error);
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.btn-danger:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-error);
+}
+
+.btn-danger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* === FORM INPUT STYLES === */
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-sm);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+  background-color: var(--bg-paper-light);
+}
+
+.input-field::placeholder {
+  color: var(--text-muted-light);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(73, 151, 232, 0.1);
+}
+
+.input-error {
+  border-color: var(--color-error);
+}
+
+.input-error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* === CARD COMPONENTS === */
+.card {
+  background-color: var(--bg-paper-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-lg);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* === DASHBOARD SPECIFIC STYLES === */
+.dashboard-gradient {
+  background: var(--gradient-hero);
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+}
+
+/* === UTILITY CLASSES === */
+.bg-white-alpha-10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-white-alpha-20 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.text-white {
+  color: white;
+}
+
+/* === SCROLLBARS === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+  transition: background var(--transition-normal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--denim-600);
+}
+
+/* === MATERIAL-UI OVERRIDES === */
+.MuiCard-root {
+  border-radius: var(--radius-xl) !important;
+  box-shadow: var(--shadow-md) !important;
+  transition: all var(--transition-normal) !important;
+}
+
+.MuiCard-root:hover {
+  box-shadow: var(--shadow-lg) !important;
+  transform: translateY(-2px) !important;
+}
+
+.MuiButton-root {
+  border-radius: var(--radius-lg) !important;
+  text-transform: none !important;
+  font-weight: var(--font-weight-semibold) !important;
+  font-family: 'Inter' !important;
+}
+
+/* === LOADING STATES === */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-toast);
+}
+
+/* === TABLE RESPONSIVENESS === */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =====================================================
+   ANIMATIONS & KEYFRAMES
+===================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+@media (max-width: 768px) {
+  body {
+    font-size: var(--font-size-sm);
+  }
+
+  .glass-card,
+  .glass-card-light {
+    border-radius: var(--radius-xl);
+    margin: var(--space-sm);
+  }
+
+  .gradient-text {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* Mobile tap optimization */
+  a, button { 
+    -webkit-tap-highlight-color: transparent; 
+    min-height: 44px; /* iOS accessibility guideline */
+  }
+}
+
+@media (max-width: 640px) {
+  /* Stack elements vertically on small screens */
+  .mobile-stack {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-md) !important;
+  }
+
+  /* Full width buttons on mobile */
+  .mobile-full-width {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-primary: rgba(73, 151, 232, 0.8);
+    --shadow-primary: 0 8px 32px rgba(73, 151, 232, 0.4);
+  }
+}
+
+/* Focus indicators for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =====================================================
+   PRINT STYLES
+===================================================== */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* =====================================================
+   BROWSER-SPECIFIC FIXES
+===================================================== */
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+  .glass-card,
+  .glass-card-light {
+    backdrop-filter: none; /* Firefox doesn't support backdrop-filter well */
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+/* Safari specific fixes */
+@supports (-webkit-backdrop-filter: none) {
+  .glass-card,
+  .glass-card-light {
+    -webkit-backdrop-filter: blur(20px);
+  }
+}
+
+/* Edge specific fixes */
+@supports (-ms-overflow-style: none) {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+  }
+}

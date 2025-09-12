@@ -1,0 +1,151 @@
+{
+  "name": "AriseHRM - Human Resource Management System",
+  "short_name": "AriseHRM",
+  "description": "Comprehensive HR management system for modern businesses with employee management, attendance tracking, leave management, payroll processing, and performance management.",
+  "version": "1.2.0",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/icons/icon-144x144.svg",
+      "sizes": "144x144",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/dashboard-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Dashboard view on desktop"
+    },
+    {
+      "src": "/screenshots/dashboard-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Dashboard view on mobile"
+    },
+    {
+      "src": "/screenshots/employee-directory.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Employee directory management"
+    },
+    {
+      "src": "/screenshots/attendance-tracking.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "platform": "narrow",
+      "label": "Attendance tracking on mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "View HR dashboard with key metrics",
+      "url": "/dashboard"
+    },
+    {
+      "name": "Check In/Out",
+      "short_name": "Attendance",
+      "description": "Mark attendance for the day",
+      "url": "/hr/attendance"
+    },
+    {
+      "name": "Leave Request",
+      "short_name": "Leave",
+      "description": "Submit a new leave request",
+      "url": "/hr/leave"
+    },
+    {
+      "name": "Employee Directory",
+      "short_name": "Employees",
+      "description": "Browse employee directory",
+      "url": "/hr/employees"
+    }
+  ],
+  "features": [
+    "offline-support",
+    "push-notifications",
+    "background-sync",
+    "cross-platform"
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "file_handlers": [
+    {
+      "action": "/import",
+      "accept": {
+        "text/csv": [".csv"],
+        "application/vnd.ms-excel": [".xls"],
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+arisehrm",
+      "url": "/handle?action=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "file",
+          "accept": ["image/*", "text/csv", "application/pdf"]
+        }
+      ]
+    }
+  },
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "permissions": [
+    "notifications",
+    "background-sync",
+    "push-messaging"
+  ]
+}

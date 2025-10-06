@@ -47,6 +47,14 @@ import {
   FirstPage,
   LocationOn,
   Business,
+  Work,
+  TrendingUp,
+  AssignmentInd,
+  Description,
+  CardGiftcard,
+  Campaign,
+  Gavel,
+  Receipt,
 } from '@mui/icons-material'
 import { useAuth } from '../../contexts/AuthContext'
 import { ThemeToggle } from '../common/ThemeToggle'
@@ -372,9 +380,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                       minWidth: mini ? 0 : 40,
                       justifyContent: 'center'
                     }}>
-                      <Badge badgeContent={item.badge} color="error">
-                        {item.icon}
-                      </Badge>
+                      {item.icon}
                     </ListItemIcon>
                     {!mini && (
                       <>
@@ -423,9 +429,7 @@ export const SidebarContent: React.FC<SidebarContentProps> = ({
                             color: 'inherit', 
                             minWidth: 36 
                           }}>
-                            <Badge badgeContent={child.badge} color="error">
-                              {child.icon}
-                            </Badge>
+                            {child.icon}
                           </ListItemIcon>
                           <ListItemText 
                             primary={child.label}

@@ -79,7 +79,7 @@ import {
 import { motion } from 'framer-motion'
 import { MetricCard } from '../common/MetricCard'
 import { StatusChip } from '../common/StatusChip'
-import { leaveService } from '../../lib/supabaseHelpers'
+import { leaveService } from '../../services/leaveService'
 
 interface LeavePattern {
   pattern: string

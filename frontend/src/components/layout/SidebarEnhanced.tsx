@@ -51,6 +51,12 @@ import {
   TrendingUp,
   Description,
   CardGiftcard,
+  Announcement,
+  Receipt,
+  QuestionAnswer,
+  Psychology,
+  AutoAwesome,
+  Analytics,
 } from '@mui/icons-material'
 import { ThemeToggle } from '../common/ThemeToggle'
 
@@ -113,14 +119,43 @@ const navigationItems = [
     icon: <People />,
     path: '/hr',
     children: [
-      { id: 'employee-directory', label: 'Employee Directory', icon: <Person />, path: '/hr/employees' },
+      { id: 'employees', label: 'Employee Directory', icon: <Person />, path: '/hr/employees' },
       { id: 'organization-chart', label: 'Organization Chart', icon: <AccountTree />, path: '/hr/organization-chart' },
       { id: 'recruitment', label: 'Recruitment', icon: <Work />, path: '/hr/recruitment' },
+      { id: 'hiring', label: 'Hiring Management', icon: <Work />, path: '/hr/hiring' },
+      { id: 'interviews', label: 'Interview Management', icon: <QuestionAnswer />, path: '/hr/interviews' },
       { id: 'performance', label: 'Performance', icon: <TrendingUp />, path: '/hr/performance' },
       { id: 'training', label: 'Training', icon: <School />, path: '/hr/training' },
       { id: 'onboarding', label: 'Onboarding', icon: <AssignmentInd />, path: '/hr/onboarding' },
       { id: 'documents', label: 'Documents', icon: <Description />, path: '/hr/documents' },
-      { id: 'benefits', label: 'Benefits', icon: <CardGiftcard />, path: '/hr/benefits' }
+      { id: 'benefits', label: 'Benefits', icon: <CardGiftcard />, path: '/hr/benefits' },
+      { id: 'announcements', label: 'Announcements', icon: <Announcement />, path: '/hr/announcements' },
+      { id: 'compliance', label: 'Compliance', icon: <HealthAndSafety />, path: '/hr/compliance' },
+      { id: 'expenses', label: 'Expenses', icon: <Receipt />, path: '/hr/expenses' }
+    ],
+  },
+  {
+    id: 'ai',
+    label: 'AI Insights',
+    icon: <Psychology />,
+    path: '/ai',
+    children: [
+      { id: 'ai-resume-analyzer', label: 'Resume Analyzer', icon: <AutoAwesome />, path: '/ai/resume-analyzer' },
+      { id: 'ai-insights', label: 'AI Insights', icon: <Analytics />, path: '/ai/insights' },
+      { id: 'ai-attendance-analyzer', label: 'Attendance Analyzer', icon: <Schedule />, path: '/ai/attendance-analyzer' },
+      { id: 'ai-leave-recommendations', label: 'Leave Recommendations', icon: <Assignment />, path: '/ai/leave-recommendations' },
+      { id: 'ai-chatbot', label: 'HR Chatbot', icon: <Psychology />, path: '/ai/chatbot' }
+    ],
+  },
+  {
+    id: 'admin',
+    label: 'Administration',
+    icon: <Settings />,
+    path: '/admin',
+    children: [
+      { id: 'database', label: 'Database Admin', icon: <Settings />, path: '/admin/database' },
+      { id: 'users', label: 'User Management', icon: <PersonAdd />, path: '/admin/users' },
+      { id: 'admin-employees', label: 'Employee Management', icon: <Group />, path: '/admin/employees' }
     ],
   },
   { id: 'attendance', label: 'Attendance', icon: <Schedule />, path: '/attendance', badge: 8 },
@@ -157,6 +192,11 @@ export const EnhancedSidebar: React.FC<EnhancedSidebarProps> = ({
   const getActiveNavFromPath = () => {
     const path = location.pathname
     if (path.includes('/hr/')) return path.split('/hr/')[1] || 'employees'
+    if (path === '/hr') return 'hr'
+    if (path.includes('/ai/')) return path.split('/ai/')[1] || 'ai-insights'
+    if (path === '/ai') return 'ai'
+    if (path.includes('/admin/')) return path.split('/admin/')[1] || 'database'
+    if (path === '/admin') return 'admin'
     if (path.includes('/leave')) return 'leave'
     if (path.includes('/attendance')) return 'attendance'
     if (path.includes('/payroll')) return 'payroll'
@@ -277,13 +317,14 @@ export const EnhancedSidebar: React.FC<EnhancedSidebarProps> = ({
                               handleNavClick(item.path)
                             }
                           }}
-                          selected={activeNav === item.id}
+                          selected={activeNav === item.id || (item.children && expandedItems.includes(item.id))}
                           sx={{
                             mb: 0.5,
                             borderRadius: 2,
                             color: theme.palette.primary.contrastText,
                             minHeight: 48,
                             px: mini ? 1.5 : 2,
+                            cursor: 'pointer',
                             '&.Mui-selected': {
                               backgroundColor: alpha(theme.palette.primary.contrastText, 0.15),
                               '&:hover': {
@@ -342,9 +383,7 @@ export const EnhancedSidebar: React.FC<EnhancedSidebarProps> = ({
                                 }}
                               >
                                 <ListItemIcon sx={{ color: 'inherit', minWidth: 32 }}>
-                                  <Badge badgeContent={child.badge} color="error">
-                                    {child.icon}
-                                  </Badge>
+                                  {child.icon}
                                 </ListItemIcon>
                                 <ListItemText
                                   primary={child.label}

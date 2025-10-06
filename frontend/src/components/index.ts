@@ -53,18 +53,15 @@ export { OrganizationChart } from './organization/OrganizationChart'
 export { EmployeeSelfService } from './selfservice/EmployeeSelfService'
 
 // Analytics Components
-export { AdvancedAnalyticsDashboard } from './analytics/AdvancedAnalyticsDashboard'
+export { Analytics } from './analytics/Analytics'
 
 // Settings Components
 export { default as SettingsDashboard } from './settings/SettingsDashboard'
 
 // Admin Components
 export { default as DatabaseAdminPanel } from './admin/DatabaseAdminPanel'
-export { default as UserManagement } from './admin/UserManagement'
 
 // Auth Components
-export { AuthGuard } from './auth/AuthGuard'
-export { default as LoginPage } from './auth/LoginPageSimple'
 export { PasswordStrengthMeter } from './auth/PasswordStrengthMeter'
 export { PermissionGuard } from './auth/PermissionGuard'
 
@@ -77,9 +74,6 @@ export { default as ErrorBoundary } from './common/ErrorBoundary'
 export { default as ErrorBoundaryEnhanced } from './common/ErrorBoundaryEnhanced'
 export { FormErrorBoundary, DataTableErrorBoundary, WidgetErrorBoundary, RouteErrorBoundary, APIErrorBoundary } from './common/ErrorBoundaryEnhanced'
 export { AnimatedNotifications } from './common/AnimatedNotifications'
-export { ResponsiveComponents } from './common/ResponsiveComponents'
-export { ResponsiveContainer } from './common/ResponsiveContainer'
-export { ResponsiveDialog } from './common/ResponsiveDialog'
 export { ResponsiveTable } from './common/ResponsiveTable'
 export { RLSNotice } from './common/RLSNotice'
 export { ThemeToggle } from './common/ThemeToggle'
@@ -119,24 +113,18 @@ export const CommonComponents = {
   NumberTicker,
   ErrorBoundary,
   AnimatedNotifications,
-  ResponsiveComponents,
-  ResponsiveContainer,
-  ResponsiveDialog,
   ResponsiveTable,
   RLSNotice,
   ThemeToggle,
 }
 
 export const AuthComponents = {
-  AuthGuard,
-  LoginPage,
   PasswordStrengthMeter,
   PermissionGuard,
 }
 
 export const AdminComponents = {
   DatabaseAdminPanel,
-  UserManagement,
   SettingsDashboard,
 }
 

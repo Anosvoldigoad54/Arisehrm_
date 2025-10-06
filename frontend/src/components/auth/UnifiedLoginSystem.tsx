@@ -236,9 +236,7 @@ export const UnifiedLoginSystem: React.FC = () => {
       // Perform login with detected role context
       const result = await login({
         email: formData.email,
-        password: formData.password,
-        rememberMe: formData.rememberMe,
-        deviceTrust: formData.deviceTrust
+        password: formData.password
       })
 
       clearInterval(progressInterval)

@@ -57,7 +57,7 @@ import {
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { motion, AnimatePresence } from 'framer-motion'
 import { StatusChip } from '../common/StatusChip'
-import { leaveService } from '../../lib/supabaseHelpers'
+import { leaveService } from '../../services/leaveService'
 import { Tables } from '../../types/database'
 
 interface ConflictInfo {

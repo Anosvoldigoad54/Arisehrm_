@@ -1,1 +1,1 @@
-export { AdvancedAnalyticsDashboard } from './AdvancedAnalyticsDashboard'
+export { Analytics } from './Analytics'

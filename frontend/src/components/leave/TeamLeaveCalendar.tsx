@@ -61,7 +61,7 @@ import {
 // import moment from 'moment'
 import { motion, AnimatePresence } from 'framer-motion'
 import { StatusChip } from '../common/StatusChip'
-import { leaveService } from '../../lib/supabaseHelpers'
+import { leaveService } from '../../services/leaveService'
 import { Tables } from '../../types/supabase'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 

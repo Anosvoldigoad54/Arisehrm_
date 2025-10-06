@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { supabase } from '../../lib/supabase'
 // Removed framer-motion animations for better performance
 // Removed react-spring - unnecessary animation overhead
 import {
@@ -98,8 +97,7 @@ import {
 } from '@mui/icons-material'
 import RLSNotice from '../common/RLSNotice'
 import { useResponsive } from '../../hooks/useResponsive'
-import NotificationCenter from '../common/NotificationCenter'
-import HelpCenter from '../common/HelpCenter'
+import NotificationCenter from '../common/AnimatedNotifications'
 import Breadcrumbs from '../common/Breadcrumbs'
 import { getDenimGradient, denimColors, getDenimShadow } from '../../styles/denimTheme'
 
@@ -408,7 +406,7 @@ interface MainLayoutProps {
 }
 
 export function MainLayout({ children }: MainLayoutProps) {
-  const { profile, user, securityContext, logout } = useAuth()
+  const { profile, user, logout } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const theme = useTheme()
@@ -497,29 +495,22 @@ export function MainLayout({ children }: MainLayoutProps) {
       path: '/dashboard',
     },
     {
-      id: 'hr',
-      label: 'Human Resources',
+      id: 'hr-management',
+      label: 'HR Management',
       icon: <People />,
       path: '/hr',
       children: [
-        {
-          id: 'hr-management',
-          label: 'HR Management',
-          icon: <People />,
-          children: [
-            { id: 'employee-directory', label: 'Employee Directory', icon: <Person />, path: '/hr/employees' },
-            { id: 'organization-chart', label: 'Organization Chart', icon: <AccountTree />, path: '/hr/organization-chart' },
-            { id: 'recruitment', label: 'Recruitment', icon: <Work />, path: '/hr/recruitment' },
-            { id: 'performance', label: 'Performance', icon: <TrendingUp />, path: '/hr/performance' },
-            { id: 'training', label: 'Training', icon: <School />, path: '/hr/training' },
-            { id: 'onboarding', label: 'Onboarding', icon: <AssignmentInd />, path: '/hr/onboarding' },
-            { id: 'documents', label: 'Documents', icon: <Description />, path: '/hr/documents' },
-            { id: 'benefits', label: 'Benefits', icon: <CardGiftcard />, path: '/hr/benefits' },
-            { id: 'announcements', label: 'Announcements', icon: <Campaign />, path: '/hr/announcements' },
-            { id: 'compliance', label: 'Compliance', icon: <Gavel />, path: '/hr/compliance' },
-            { id: 'expenses', label: 'Expenses', icon: <Receipt />, path: '/hr/expenses' }
-          ]
-        },
+        { id: 'employee-directory', label: 'Employee Directory', icon: <Person />, path: '/hr/employees' },
+        { id: 'organization-chart', label: 'Organization Chart', icon: <AccountTree />, path: '/hr/organization-chart' },
+        { id: 'recruitment', label: 'Recruitment', icon: <Work />, path: '/hr/recruitment' },
+        { id: 'performance', label: 'Performance', icon: <TrendingUp />, path: '/hr/performance' },
+        { id: 'training', label: 'Training', icon: <School />, path: '/hr/training' },
+        { id: 'onboarding', label: 'Onboarding', icon: <AssignmentInd />, path: '/hr/onboarding' },
+        { id: 'documents', label: 'Documents', icon: <Description />, path: '/hr/documents' },
+        { id: 'benefits', label: 'Benefits', icon: <CardGiftcard />, path: '/hr/benefits' },
+        { id: 'announcements', label: 'Announcements', icon: <Campaign />, path: '/hr/announcements' },
+        { id: 'compliance', label: 'Compliance', icon: <Gavel />, path: '/hr/compliance' },
+        { id: 'expenses', label: 'Expenses', icon: <Receipt />, path: '/hr/expenses' }
       ]
     },
     {

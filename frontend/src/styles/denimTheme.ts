@@ -422,20 +422,24 @@ export const getDenimGradient = (type: keyof typeof denimGradients) => denimGrad
 export const getDenimShadow = (type: keyof typeof denimShadows) => denimShadows[type];
 
 // Role-based color helper
-export const getRoleColor = (role: string) => {
-  switch (role?.toLowerCase()) {
+export const getRoleColor = (role: string | null | undefined) => {
+  if (!role || typeof role !== 'string') {
+    return denimColors[500]; // Default color
+  }
+  
+  switch (role.toLowerCase()) {
     case 'employee': return denimColors[400];
-    case 'senior_employee': return denimColors[450];
+    case 'senior_employee': return denimColors[500];
     case 'team_lead': 
-    case 'team_leader': return denimColors[500];
+    case 'team_leader': return denimColors[600];
     case 'department_manager': 
-    case 'manager': return denimColors[600];
+    case 'manager': return denimColors[700];
     case 'hr_manager': 
-    case 'hr': return denimColors[700];
+    case 'hr': return denimColors[800];
     case 'admin': 
-    case 'administrator': return denimColors[800];
+    case 'administrator': return denimColors[900];
     case 'super_admin': 
-    case 'super_administrator': return denimColors[900];
+    case 'super_administrator': return denimColors[950];
     default: return denimColors[500];
   }
 };

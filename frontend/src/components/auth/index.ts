@@ -1,5 +1,5 @@
 // Main unified login system
-export { default as UnifiedLoginSystem } from './UnifiedLoginSystem';
+export { default as UnifiedLoginSystem } from './UnifiedLoginSystem'
 
 // Legacy login selector (keeping for backward compatibility)
 // export { default as RoleBasedLoginSelector } from './RoleBasedLoginSelector';
@@ -15,9 +15,9 @@ export { default as UnifiedLoginSystem } from './UnifiedLoginSystem';
 // Other auth components
 // export { default as LoginPage } from './LoginPage';
 // export { default as LoginPageSimple } from './LoginPageSimple';
-export { default as PasswordChangeDialog } from './PasswordChangeDialog';
-export { default as AuthGuard } from './AuthGuard';
+export { default as PasswordChangeDialog } from './PasswordChangeDialog'
+export { default as AuthGuard } from './AuthGuard'
 // export { default as ProtectedRoute } from './ProtectedRoute';
 // export { default as RoleGuard } from './RoleGuard';
-export { default as PermissionGuard } from './PermissionGuard';
-export { default as AuthGuardSimple } from './AuthGuardSimple';
+export { default as PermissionGuard } from './PermissionGuard'
+export { default as AuthGuardSimple } from './AuthGuardSimple'

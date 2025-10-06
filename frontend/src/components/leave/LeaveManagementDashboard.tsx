@@ -75,7 +75,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import StatusChip from '../common/StatusChip'
 import MetricCard from '../common/MetricCard'
 import { LeaveRequestForm } from './LeaveRequestForm'
-import { leaveService } from '../../lib/supabaseHelpers'
+import { leaveService } from '../../services/leaveService'
 import { Tables } from '../../types/supabase'
 
 interface LeaveStats {

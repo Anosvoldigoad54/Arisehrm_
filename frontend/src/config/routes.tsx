@@ -116,9 +116,9 @@ const EmployeeSelfService = React.lazy(() =>
 )
 
 // Analytics
-const AdvancedAnalyticsDashboard = React.lazy(() =>
-  import('../components/analytics/AdvancedAnalyticsDashboard').then(m => ({
-    default: m.AdvancedAnalyticsDashboard,
+const Analytics = React.lazy(() =>
+  import('../components/analytics/Analytics').then(m => ({
+    default: m.Analytics,
   }))
 )
 
@@ -274,7 +274,7 @@ export const routeConfig: RouteConfig[] = [
   // Analytics & Reporting
   {
     path: '/analytics',
-    element: <SuspenseWrapper><AdvancedAnalyticsDashboard /></SuspenseWrapper>,
+    element: <SuspenseWrapper><Analytics /></SuspenseWrapper>,
     title: 'Analytics & Reports',
     description: 'Advanced HR analytics and business intelligence',
     icon: 'analytics',

@@ -31,12 +31,13 @@ const AttendanceTracking = lazy(() => import('./components/attendance/Attendance
 const LocationBasedAttendance = lazy(() => import('./components/attendance/LocationBasedAttendance'))
 const LeaveManagement = lazy(() => import('./components/leave/LeaveManagementComprehensive'))
 const PayrollDashboard = lazy(() => import('./components/payroll/DashboardPayroll'))
-const AdvancedAnalyticsDashboard = lazy(() => import('./components/analytics/AdvancedAnalyticsDashboard').then(module => ({ default: module.AdvancedAnalyticsDashboard })))
+const Analytics = lazy(() => import('./components/analytics/Analytics').then(module => ({ default: module.Analytics })))
 const EmployeeProfile = lazy(() => import('./components/employees/EmployeeProfile'))
 const OrganizationChart = lazy(() => import('./components/organization/OrganizationChart').then(module => ({ default: module.OrganizationChart })))
 const DocumentManagement = lazy(() => import('./components/documents/DocumentManagement'))
 const AdminPanel = lazy(() => import('./components/admin/DatabaseAdminPanel'))
 const SuperAdminUserCreation = lazy(() => import('./components/admin/SuperAdminUserCreation'))
+const EmployeeManagementInterface = lazy(() => import('./components/admin/EmployeeManagementInterface'))
 const BenefitsManagement = lazy(() => import('./components/benefits/BenefitsManagement'))
 const ProjectManagement = lazy(() => import('./components/projects/ProjectManagement'))
 const UnifiedLoginSystem = lazy(() => import('./components/auth/UnifiedLoginSystem'))
@@ -48,8 +49,8 @@ const MessagingSystem = lazy(() => import('./components/messaging/MessagingSyste
 const PasswordChangeDialog = lazy(() => import('./components/auth/PasswordChangeDialog'))
 const PerformanceManagement = lazy(() => import('./components/performance/PerformanceManagement'))
 const HiringManagement = lazy(() => import('./components/hiring/HiringManagement'))
+const HRDashboard = lazy(() => import('./components/hr/HRDashboard'))
 const InterviewManagement = lazy(() => import('./components/interviews/InterviewManagement'))
-const RoleBasedDashboard = lazy(() => import('./components/dashboard/RoleBasedDashboard'))
 const TrainingManagement = lazy(() => import('./components/training/TrainingManagement'))
 const AnnouncementCenter = lazy(() => import('./components/announcements/AnnouncementCenter'))
 const ExpenseManagement = lazy(() => import('./components/expenses/ExpenseManagement'))
@@ -138,7 +139,7 @@ function AppRoutes() {
                   path="dashboard" 
                   element={
                     <SimpleRoute routeName="Dashboard">
-                      <RoleBasedDashboard />
+                      <Dashboard />
                     </SimpleRoute>
                   } 
                 />
@@ -152,6 +153,14 @@ function AppRoutes() {
                 />
 
                 {/* HR Routes */}
+                <Route 
+                  path="hr" 
+                  element={
+                    <SimpleRoute>
+                      <HRDashboard />
+                    </SimpleRoute>
+                  } 
+                />
                 <Route 
                   path="hr/teams" 
                   element={
@@ -412,6 +421,14 @@ function AppRoutes() {
                   element={
                     <SimpleRoute>
                       <SuperAdminUserCreation />
+                    </SimpleRoute>
+                  } 
+                />
+                <Route 
+                  path="admin/employees" 
+                  element={
+                    <SimpleRoute>
+                      <EmployeeManagementInterface />
                     </SimpleRoute>
                   } 
                 />

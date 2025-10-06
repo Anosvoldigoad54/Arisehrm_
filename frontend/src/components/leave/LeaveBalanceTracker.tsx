@@ -58,7 +58,7 @@ import { motion } from 'framer-motion'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts'
 import { StatusChip } from '../common/StatusChip'
 import { MetricCard } from '../common/MetricCard'
-import { leaveService } from '../../lib/supabaseHelpers'
+import { leaveService } from '../../services/leaveService'
 import { Tables } from '../../types/supabase'
 
 interface LeaveBalance {

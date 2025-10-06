@@ -1,0 +1,664 @@
+# ========================================
+# ARISE HRM - RBAC CONFIGURATION (YAML)
+# ========================================
+# Implementation-ready YAML structure for Supabase RLS policies
+# and frontend permission guards
+
+roles:
+  intern:
+    level: 20
+    name: "intern"
+    display_name: "Intern"
+    permissions:
+      dashboard:
+        view: { scope: "OWN", restrictions: ["basic_widgets_only"] }
+        customize: { scope: "NONE" }
+      
+      employees:
+        view: { scope: "OWN" }
+        create: { scope: "NONE" }
+        edit: { scope: "OWN", restrictions: ["limited_fields", "no_sensitive_data"] }
+        delete: { scope: "NONE" }
+        import: { scope: "NONE" }
+        export: { scope: "NONE" }
+      
+      attendance:
+        clock_in_out: { scope: "OWN" }
+        view_records: { scope: "OWN" }
+        approve_correct: { scope: "NONE" }
+      
+      leave:
+        apply_request: { scope: "OWN", restrictions: ["limited_types", "max_days_per_request"] }
+        approve: { scope: "NONE" }
+        manage_policies: { scope: "NONE" }
+      
+      payroll:
+        view_salary: { scope: "NONE" }
+        process: { scope: "NONE" }
+        approve: { scope: "NONE" }
+        settings_mgmt: { scope: "NONE" }
+      
+      performance:
+        self_goals: { scope: "OWN" }
+        reviews: { scope: "OWN", restrictions: ["feedback_only"] }
+        goal_setting: { scope: "NONE" }
+      
+      reports:
+        view: { scope: "NONE" }
+        create_custom: { scope: "NONE" }
+      
+      documents:
+        access: { scope: "OWN", restrictions: ["intern_guide_only"] }
+      
+      training:
+        access: { scope: "OWN", restrictions: ["intern_track_only"] }
+      
+      compliance:
+        view: { scope: "OWN", restrictions: ["basic_policy_only"] }
+        manage: { scope: "NONE" }
+      
+      organization_chart:
+        view: { scope: "TEAM", restrictions: ["team_dept_only"] }
+        edit: { scope: "NONE" }
+      
+      messaging:
+        internal: { scope: "TEAM", restrictions: ["team_only"] }
+      
+      announcements:
+        view: { scope: "OWN", restrictions: ["view_only"] }
+        create: { scope: "NONE" }
+      
+      system:
+        settings: { scope: "NONE" }
+      
+      user:
+        management: { scope: "NONE" }
+      
+      audit:
+        security_logs: { scope: "NONE" }
+
+  employee:
+    level: 40
+    name: "employee"
+    display_name: "Employee"
+    permissions:
+      dashboard:
+        view: { scope: "OWN" }
+        customize: { scope: "OWN", restrictions: ["limited_widgets"] }
+      
+      employees:
+        view: { scope: "OWN" }
+        create: { scope: "NONE" }
+        edit: { scope: "OWN", restrictions: ["limited_fields", "no_salary_data"] }
+        delete: { scope: "NONE" }
+        import: { scope: "NONE" }
+        export: { scope: "NONE" }
+      
+      attendance:
+        clock_in_out: { scope: "OWN" }
+        view_records: { scope: "OWN" }
+        approve_correct: { scope: "OWN", restrictions: ["request_only"] }
+      
+      leave:
+        apply_request: { scope: "OWN" }
+        approve: { scope: "NONE" }
+        manage_policies: { scope: "NONE" }
+      
+      payroll:
+        view_salary: { scope: "OWN" }
+        process: { scope: "NONE" }
+        approve: { scope: "NONE" }
+        settings_mgmt: { scope: "NONE" }
+      
+      performance:
+        self_goals: { scope: "OWN" }
+        reviews: { scope: "OWN", restrictions: ["feedback_and_receive"] }
+        goal_setting: { scope: "OWN", restrictions: ["self_only"] }
+      
+      reports:
+        view: { scope: "OWN", restrictions: ["own_data_only"] }
+        create_custom: { scope: "NONE" }
+      
+      documents:
+        access: { scope: "OWN", restrictions: ["personal_docs"] }
+      
+      training:
+        access: { scope: "OWN", restrictions: ["assigned_only"] }
+      
+      compliance:
+        view: { scope: "OWN", restrictions: ["general_policy"] }
+        manage: { scope: "NONE" }
+      
+      organization_chart:
+        view: { scope: "TEAM", restrictions: ["team_dept_only"] }
+        edit: { scope: "NONE" }
+      
+      messaging:
+        internal: { scope: "DEPARTMENT", restrictions: ["dept_channels"] }
+      
+      announcements:
+        view: { scope: "OWN", restrictions: ["view_only"] }
+        create: { scope: "NONE" }
+      
+      system:
+        settings: { scope: "NONE" }
+      
+      user:
+        management: { scope: "NONE" }
+      
+      audit:
+        security_logs: { scope: "NONE" }
+
+  senior_employee:
+    level: 50
+    name: "senior_employee"
+    display_name: "Senior Employee"
+    permissions:
+      dashboard:
+        view: { scope: "OWN", conditions: ["mentorship_widgets"] }
+        customize: { scope: "OWN", conditions: ["own_and_team_widgets"] }
+      
+      employees:
+        view: { scope: "OWN", conditions: ["plus_mentees"] }
+        create: { scope: "NONE" }
+        edit: { scope: "OWN", conditions: ["own_plus_mentees"] }
+        delete: { scope: "NONE" }
+        import: { scope: "NONE" }
+        export: { scope: "NONE" }
+      
+      attendance:
+        clock_in_out: { scope: "OWN" }
+        view_records: { scope: "OWN", conditions: ["plus_mentees"] }
+        approve_correct: { scope: "OWN", conditions: ["request_plus_mentor"] }
+      
+      leave:
+        apply_request: { scope: "OWN", conditions: ["plus_mentees"] }
+        approve: { scope: "NONE" }
+        manage_policies: { scope: "NONE" }
+      
+      payroll:
+        view_salary: { scope: "OWN", conditions: ["plus_mentees"] }
+        process: { scope: "NONE" }
+        approve: { scope: "NONE" }
+        settings_mgmt: { scope: "NONE" }
+      
+      performance:
+        self_goals: { scope: "OWN", conditions: ["plus_mentees"] }
+        reviews: { scope: "OWN", conditions: ["review_mentees"] }
+        goal_setting: { scope: "OWN", conditions: ["self_plus_mentees"] }
+      
+      reports:
+        view: { scope: "DEPARTMENT", restrictions: ["summaries_only"] }
+        create_custom: { scope: "NONE" }
+      
+      documents:
+        access: { scope: "OWN", conditions: ["personal_plus_mentorship"] }
+      
+      training:
+        access: { scope: "OWN", conditions: ["advanced_plus_mentor"] }
+      
+      compliance:
+        view: { scope: "OWN", restrictions: ["general_policy"] }
+        manage: { scope: "NONE" }
+      
+      organization_chart:
+        view: { scope: "DEPARTMENT", conditions: ["enhanced_view"] }
+        edit: { scope: "NONE" }
+      
+      messaging:
+        internal: { scope: "DEPARTMENT", conditions: ["dept_plus_mentorship"] }
+      
+      announcements:
+        view: { scope: "OWN", conditions: ["view_plus_shareable"] }
+        create: { scope: "NONE" }
+      
+      system:
+        settings: { scope: "NONE" }
+      
+      user:
+        management: { scope: "NONE" }
+      
+      audit:
+        security_logs: { scope: "NONE" }
+
+  team_lead:
+    level: 60
+    name: "team_lead"
+    display_name: "Team Lead"
+    permissions:
+      dashboard:
+        view: { scope: "TEAM" }
+        customize: { scope: "TEAM", restrictions: ["team_widgets"] }
+      
+      employees:
+        view: { scope: "TEAM" }
+        create: { scope: "TEAM", restrictions: ["limited_team_assign"] }
+        edit: { scope: "TEAM", restrictions: ["team_only"] }
+        delete: { scope: "NONE" }
+        import: { scope: "NONE" }
+        export: { scope: "NONE" }
+      
+      attendance:
+        clock_in_out: { scope: "OWN", conditions: ["approve_team"] }
+        view_records: { scope: "TEAM" }
+        approve_correct: { scope: "TEAM" }
+      
+      leave:
+        apply_request: { scope: "TEAM", conditions: ["own_plus_recommend"] }
+        approve: { scope: "TEAM" }
+        manage_policies: { scope: "NONE" }
+      
+      payroll:
+        view_salary: { scope: "TEAM", restrictions: ["summary_only"] }
+        process: { scope: "NONE" }
+        approve: { scope: "NONE" }
+        settings_mgmt: { scope: "NONE" }
+      
+      performance:
+        self_goals: { scope: "TEAM" }
+        reviews: { scope: "TEAM", restrictions: ["team_reviews"] }
+        goal_setting: { scope: "TEAM" }
+      
+      reports:
+        view: { scope: "TEAM", restrictions: ["team_metrics"] }
+        create_custom: { scope: "TEAM", restrictions: ["limited_scope"] }
+      
+      documents:
+        access: { scope: "TEAM", restrictions: ["team_docs"] }
+      
+      training:
+        access: { scope: "TEAM", restrictions: ["team_training"] }
+      
+      compliance:
+        view: { scope: "DEPARTMENT", restrictions: ["dept_policy"] }
+        manage: { scope: "NONE" }
+      
+      organization_chart:
+        view: { scope: "TEAM" }
+        edit: { scope: "TEAM", restrictions: ["team_assign"] }
+      
+      messaging:
+        internal: { scope: "TEAM" }
+      
+      announcements:
+        view: { scope: "TEAM", conditions: ["team_create"] }
+        create: { scope: "TEAM" }
+      
+      system:
+        settings: { scope: "NONE" }
+      
+      user:
+        management: { scope: "NONE" }
+      
+      audit:
+        security_logs: { scope: "NONE" }
+
+  department_manager:
+    level: 70
+    name: "department_manager"
+    display_name: "Department Manager"
+    permissions:
+      dashboard:
+        view: { scope: "DEPARTMENT" }
+        customize: { scope: "DEPARTMENT", restrictions: ["dept_widgets"] }
+      
+      employees:
+        view: { scope: "DEPARTMENT" }
+        create: { scope: "DEPARTMENT", restrictions: ["limited"] }
+        edit: { scope: "DEPARTMENT" }
+        delete: { scope: "NONE" }
+        import: { scope: "NONE" }
+        export: { scope: "NONE" }
+      
+      attendance:
+        clock_in_out: { scope: "OWN", conditions: ["approve_dept"] }
+        view_records: { scope: "DEPARTMENT" }
+        approve_correct: { scope: "DEPARTMENT" }
+      
+      leave:
+        apply_request: { scope: "DEPARTMENT", conditions: ["endorse"] }
+        approve: { scope: "DEPARTMENT" }
+        manage_policies: { scope: "NONE" }
+      
+      payroll:
+        view_salary: { scope: "DEPARTMENT", restrictions: ["summary"] }
+        process: { scope: "NONE" }
+        approve: { scope: "NONE" }
+        settings_mgmt: { scope: "NONE" }
+      
+      performance:
+        self_goals: { scope: "DEPARTMENT", restrictions: ["dept_goals"] }
+        reviews: { scope: "DEPARTMENT", restrictions: ["dept_reviews"] }
+        goal_setting: { scope: "DEPARTMENT" }
+      
+      reports:
+        view: { scope: "DEPARTMENT", restrictions: ["dept_reports"] }
+        create_custom: { scope: "DEPARTMENT", restrictions: ["dept_scope"] }
+      
+      documents:
+        access: { scope: "DEPARTMENT", restrictions: ["dept_docs"] }
+      
+      training:
+        access: { scope: "DEPARTMENT", restrictions: ["dept_training"] }
+      
+      compliance:
+        view: { scope: "DEPARTMENT", conditions: ["plus_compliance"] }
+        manage: { scope: "NONE" }
+      
+      organization_chart:
+        view: { scope: "DEPARTMENT" }
+        edit: { scope: "DEPARTMENT", restrictions: ["dept_structure"] }
+      
+      messaging:
+        internal: { scope: "DEPARTMENT", conditions: ["plus_cross_team"] }
+      
+      announcements:
+        view: { scope: "DEPARTMENT", conditions: ["dept_create"] }
+        create: { scope: "DEPARTMENT" }
+      
+      system:
+        settings: { scope: "NONE" }
+      
+      user:
+        management: { scope: "NONE" }
+      
+      audit:
+        security_logs: { scope: "NONE" }
+
+  hr_manager:
+    level: 80
+    name: "hr_manager"
+    display_name: "HR Manager"
+    permissions:
+      dashboard:
+        view: { scope: "ALL", restrictions: ["hr_dashboards"] }
+        customize: { scope: "ALL", restrictions: ["hr_widgets"] }
+      
+      employees:
+        view: { scope: "ALL" }
+        create: { scope: "ALL" }
+        edit: { scope: "ALL" }
+        delete: { scope: "ALL", restrictions: ["inactive_only"] }
+        import: { scope: "ALL", restrictions: ["import_only"] }
+        export: { scope: "ALL" }
+      
+      attendance:
+        clock_in_out: { scope: "ALL", conditions: ["manage_all"] }
+        view_records: { scope: "ALL" }
+        approve_correct: { scope: "ALL", restrictions: ["all_approvals"] }
+      
+      leave:
+        apply_request: { scope: "ALL" }
+        approve: { scope: "ALL" }
+        manage_policies: { scope: "ALL" }
+      
+      payroll:
+        view_salary: { scope: "ALL" }
+        process: { scope: "ALL" }
+        approve: { scope: "ALL" }
+        settings_mgmt: { scope: "ALL", restrictions: ["limited_configs"] }
+      
+      performance:
+        self_goals: { scope: "ALL" }
+        reviews: { scope: "ALL", restrictions: ["all_cycles"] }
+        goal_setting: { scope: "ALL", restrictions: ["org_wide"] }
+      
+      reports:
+        view: { scope: "ALL", restrictions: ["hr_reports"] }
+        create_custom: { scope: "ALL", restrictions: ["hr_scope"] }
+      
+      documents:
+        access: { scope: "ALL", restrictions: ["hr_docs"] }
+      
+      training:
+        access: { scope: "ALL", restrictions: ["hr_wide"] }
+      
+      compliance:
+        view: { scope: "ALL", restrictions: ["hr_wide"] }
+        manage: { scope: "ALL", restrictions: ["hr_compliance"] }
+      
+      organization_chart:
+        view: { scope: "ALL" }
+        edit: { scope: "ALL", restrictions: ["hr_structure"] }
+      
+      messaging:
+        internal: { scope: "ALL", restrictions: ["hr_broadcast"] }
+      
+      announcements:
+        view: { scope: "ALL", conditions: ["hr_wide_publish"] }
+        create: { scope: "ALL", restrictions: ["hr_wide"] }
+      
+      system:
+        settings: { scope: "ALL", restrictions: ["limited_policies"] }
+      
+      user:
+        management: { scope: "ALL", restrictions: ["limited_onboarding"] }
+      
+      audit:
+        security_logs: { scope: "NONE" }
+
+  admin:
+    level: 90
+    name: "admin"
+    display_name: "Administrator"
+    permissions:
+      dashboard:
+        view: { scope: "ALL", restrictions: ["admin_dashboards"] }
+        customize: { scope: "ALL" }
+      
+      employees:
+        view: { scope: "ALL" }
+        create: { scope: "ALL" }
+        edit: { scope: "ALL" }
+        delete: { scope: "ALL" }
+        import: { scope: "ALL" }
+        export: { scope: "ALL" }
+      
+      attendance:
+        clock_in_out: { scope: "ALL", conditions: ["manage_all"] }
+        view_records: { scope: "ALL" }
+        approve_correct: { scope: "ALL" }
+      
+      leave:
+        apply_request: { scope: "ALL" }
+        approve: { scope: "ALL" }
+        manage_policies: { scope: "ALL" }
+      
+      payroll:
+        view_salary: { scope: "ALL" }
+        process: { scope: "ALL" }
+        approve: { scope: "ALL" }
+        settings_mgmt: { scope: "ALL" }
+      
+      performance:
+        self_goals: { scope: "ALL" }
+        reviews: { scope: "ALL" }
+        goal_setting: { scope: "ALL" }
+      
+      reports:
+        view: { scope: "ALL" }
+        create_custom: { scope: "ALL" }
+      
+      documents:
+        access: { scope: "ALL" }
+      
+      training:
+        access: { scope: "ALL" }
+      
+      compliance:
+        view: { scope: "ALL" }
+        manage: { scope: "ALL" }
+      
+      organization_chart:
+        view: { scope: "ALL" }
+        edit: { scope: "ALL", restrictions: ["org_level"] }
+      
+      messaging:
+        internal: { scope: "ALL", restrictions: ["org_wide"] }
+      
+      announcements:
+        view: { scope: "ALL" }
+        create: { scope: "ALL", restrictions: ["org_wide"] }
+      
+      system:
+        settings: { scope: "ALL", restrictions: ["full_system_config"] }
+      
+      user:
+        management: { scope: "ALL" }
+      
+      audit:
+        security_logs: { scope: "ALL", restrictions: ["limited"] }
+
+  super_admin:
+    level: 100
+    name: "super_admin"
+    display_name: "Super Administrator"
+    permissions:
+      dashboard:
+        view: { scope: "SYSTEM", restrictions: ["system_metrics"] }
+        customize: { scope: "SYSTEM", restrictions: ["bi_dashboards"] }
+      
+      employees:
+        view: { scope: "SYSTEM", conditions: ["hidden_system_data"] }
+        create: { scope: "SYSTEM" }
+        edit: { scope: "SYSTEM" }
+        delete: { scope: "SYSTEM" }
+        import: { scope: "SYSTEM" }
+        export: { scope: "SYSTEM" }
+      
+      attendance:
+        clock_in_out: { scope: "SYSTEM", conditions: ["manage_all"] }
+        view_records: { scope: "SYSTEM" }
+        approve_correct: { scope: "SYSTEM", conditions: ["all_overrides"] }
+      
+      leave:
+        apply_request: { scope: "SYSTEM" }
+        approve: { scope: "SYSTEM" }
+        manage_policies: { scope: "SYSTEM" }
+      
+      payroll:
+        view_salary: { scope: "SYSTEM" }
+        process: { scope: "SYSTEM" }
+        approve: { scope: "SYSTEM" }
+        settings_mgmt: { scope: "SYSTEM" }
+      
+      performance:
+        self_goals: { scope: "SYSTEM" }
+        reviews: { scope: "SYSTEM" }
+        goal_setting: { scope: "SYSTEM" }
+      
+      reports:
+        view: { scope: "SYSTEM", conditions: ["bi_dashboards"] }
+        create_custom: { scope: "SYSTEM", conditions: ["advanced_analytics"] }
+      
+      documents:
+        access: { scope: "SYSTEM" }
+      
+      training:
+        access: { scope: "SYSTEM" }
+      
+      compliance:
+        view: { scope: "SYSTEM" }
+        manage: { scope: "SYSTEM" }
+      
+      organization_chart:
+        view: { scope: "SYSTEM", conditions: ["system_level"] }
+        edit: { scope: "SYSTEM", conditions: ["org_plus_system"] }
+      
+      messaging:
+        internal: { scope: "SYSTEM", restrictions: ["system_wide"] }
+      
+      announcements:
+        view: { scope: "SYSTEM" }
+        create: { scope: "SYSTEM", restrictions: ["org_wide"] }
+      
+      system:
+        settings: { scope: "SYSTEM", restrictions: ["database_plus_infra"] }
+      
+      user:
+        management: { scope: "SYSTEM", restrictions: ["system_level"] }
+      
+      audit:
+        security_logs: { scope: "SYSTEM", restrictions: ["full_system"] }
+
+# ========================================
+# SCOPE HIERARCHY CONFIGURATION
+# ========================================
+scope_hierarchy:
+  NONE: 0
+  OWN: 1
+  TEAM: 2
+  DEPARTMENT: 3
+  ALL: 4
+  SYSTEM: 5
+
+# ========================================
+# PERMISSION CATEGORIES
+# ========================================
+permission_categories:
+  dashboard:
+    - view
+    - customize
+  
+  employees:
+    - view
+    - create
+    - edit
+    - delete
+    - import
+    - export
+  
+  attendance:
+    - clock_in_out
+    - view_records
+    - approve_correct
+  
+  leave:
+    - apply_request
+    - approve
+    - manage_policies
+  
+  payroll:
+    - view_salary
+    - process
+    - approve
+    - settings_mgmt
+  
+  performance:
+    - self_goals
+    - reviews
+    - goal_setting
+  
+  reports:
+    - view
+    - create_custom
+  
+  documents:
+    - access
+  
+  training:
+    - access
+  
+  compliance:
+    - view
+    - manage
+  
+  organization_chart:
+    - view
+    - edit
+  
+  messaging:
+    - internal
+  
+  announcements:
+    - view
+    - create
+  
+  system:
+    - settings
+  
+  user:
+    - management
+  
+  audit:
+    - security_logs

@@ -26,13 +26,19 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    host: true, // Changed from 'localhost' to true to allow external connections
+    host: '0.0.0.0', // Listen on all network interfaces
     strictPort: false,
     force: true, // Force dependency re-optimization
     hmr: {
       // Removed explicit HMR configuration to use Vite defaults
       // This often resolves WebSocket connection issues
     },
+    allowedHosts: [
+      'localhost',
+      '127.0.0.1',
+      '.preview.emergentagent.com', // Allow all preview subdomains
+      'fixall-explorer.preview.emergentagent.com'
+    ],
     // Removed WebSocket proxy as it was causing conflicts
   },
   build: {

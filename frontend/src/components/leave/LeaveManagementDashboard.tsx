@@ -263,7 +263,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
   const renderOverviewTab = () => (
     <Grid container spacing={3}>
       {/* Metrics Cards */}
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Total Requests"
           value={leaveStats?.totalRequests || 0}
@@ -272,7 +276,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
           color="primary"
         />
       </Grid>
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Pending Approvals"
           value={leaveStats?.pendingApprovals || 0}
@@ -281,7 +289,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
           color="warning"
         />
       </Grid>
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Team Utilization"
           value={`${leaveStats?.teamUtilization || 0}%`}
@@ -290,7 +302,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
           color="success"
         />
       </Grid>
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Avg Leave Days"
           value={leaveStats?.averageLeaveLength || 0}
@@ -301,7 +317,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
       </Grid>
 
       {/* Recent Requests */}
-      <Grid item xs={12} lg={8}>
+      <Grid
+        size={{
+          xs: 12,
+          lg: 8
+        }}>
         <Card>
           <CardContent>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
@@ -360,7 +380,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
       </Grid>
 
       {/* Upcoming Leaves */}
-      <Grid item xs={12} lg={4}>
+      <Grid
+        size={{
+          xs: 12,
+          lg: 4
+        }}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -417,7 +441,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} md={2}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 2
+              }}>
               <FormControl fullWidth size="small">
                 <InputLabel>Status</InputLabel>
                 <Select
@@ -433,7 +461,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 2
+              }}>
               <FormControl fullWidth size="small">
                 <InputLabel>Leave Type</InputLabel>
                 <Select
@@ -449,7 +481,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 3
+              }}>
               <DatePicker
                 label="From Date"
                 value={filters.dateRange.start}
@@ -459,7 +495,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
                 }}
               />
             </Grid>
-            <Grid item xs={12} md={3}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 3
+              }}>
               <DatePicker
                 label="To Date"
                 value={filters.dateRange.end}
@@ -469,7 +509,11 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
                 }}
               />
             </Grid>
-            <Grid item xs={12} md={2}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 2
+              }}>
               <Button
                 fullWidth
                 variant="outlined"
@@ -620,7 +664,7 @@ export const LeaveManagementDashboard: React.FC<LeaveManagementDashboardProps> =
 
   const renderAnalyticsTab = () => (
     <Grid container spacing={3}>
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Alert severity="info">
           Advanced analytics and reporting features coming soon!
         </Alert>

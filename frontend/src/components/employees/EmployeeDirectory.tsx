@@ -609,7 +609,6 @@ const EmployeeDirectory: React.FC = () => {
           </Button>
         </Stack>
       </Stack>
-
       {/* Filters */}
       <Paper sx={{ p: 3, mb: 3, borderRadius: 3 }}>
         <Stack spacing={3}>
@@ -646,7 +645,12 @@ const EmployeeDirectory: React.FC = () => {
 
           {showFilters && (
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <FormControl fullWidth size={responsive.getInputSize()}>
                   <InputLabel>Status</InputLabel>
                   <Select
@@ -663,7 +667,12 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <FormControl fullWidth size={responsive.getInputSize()}>
                   <InputLabel>Department</InputLabel>
                   <Select
@@ -680,7 +689,12 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <FormControl fullWidth size={responsive.getInputSize()}>
                   <InputLabel>Type</InputLabel>
                   <Select
@@ -697,7 +711,12 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Stack direction="row" spacing={1}>
                   <Button
                     variant="outlined"
@@ -713,7 +732,6 @@ const EmployeeDirectory: React.FC = () => {
           )}
         </Stack>
       </Paper>
-
       {/* Employee Table */}
       <TableContainer component={Paper} sx={{ borderRadius: 3, overflowX: 'auto' }}>
         <Table stickyHeader>
@@ -822,7 +840,6 @@ const EmployeeDirectory: React.FC = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
       {/* Pagination */}
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 3, mb: 2 }}>
         <Stack direction={responsive.getFlexDirection('column', 'row')} spacing={2} alignItems="center">
@@ -863,7 +880,6 @@ const EmployeeDirectory: React.FC = () => {
           </Typography>
         </Stack>
       </Box>
-
       {/* Add Employee Dialog */}
       <Dialog
         open={isAddDialogOpen}
@@ -883,7 +899,11 @@ const EmployeeDirectory: React.FC = () => {
           </DialogTitle>
           <DialogContent>
             <Grid container spacing={3} sx={{ mt: 1 }}>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="First Name"
@@ -893,7 +913,11 @@ const EmployeeDirectory: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Last Name"
@@ -903,7 +927,7 @@ const EmployeeDirectory: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   label="Email"
@@ -914,7 +938,11 @@ const EmployeeDirectory: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Phone"
@@ -923,7 +951,11 @@ const EmployeeDirectory: React.FC = () => {
                   onChange={handleInputChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Employee ID"
@@ -933,7 +965,11 @@ const EmployeeDirectory: React.FC = () => {
                   placeholder="Auto-generated if empty"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Department</InputLabel>
                   <Select
@@ -949,7 +985,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Position</InputLabel>
                   <Select
@@ -965,7 +1005,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Employment Type</InputLabel>
                   <Select
@@ -980,7 +1024,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Status</InputLabel>
                   <Select
@@ -995,7 +1043,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Hire Date"
@@ -1021,7 +1073,6 @@ const EmployeeDirectory: React.FC = () => {
           </DialogActions>
         </form>
       </Dialog>
-
       {/* Edit Employee Dialog */}
       <Dialog
         open={isEditDialogOpen}
@@ -1041,7 +1092,11 @@ const EmployeeDirectory: React.FC = () => {
           </DialogTitle>
           <DialogContent>
             <Grid container spacing={3} sx={{ mt: 1 }}>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="First Name"
@@ -1051,7 +1106,11 @@ const EmployeeDirectory: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Last Name"
@@ -1061,7 +1120,7 @@ const EmployeeDirectory: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   label="Email"
@@ -1072,7 +1131,11 @@ const EmployeeDirectory: React.FC = () => {
                   required
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Phone"
@@ -1081,7 +1144,11 @@ const EmployeeDirectory: React.FC = () => {
                   onChange={handleInputChange}
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Employee ID"
@@ -1090,7 +1157,11 @@ const EmployeeDirectory: React.FC = () => {
                   disabled
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Department</InputLabel>
                   <Select
@@ -1106,7 +1177,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Position</InputLabel>
                   <Select
@@ -1122,7 +1197,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Employment Type</InputLabel>
                   <Select
@@ -1137,7 +1216,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Status</InputLabel>
                   <Select
@@ -1152,7 +1235,11 @@ const EmployeeDirectory: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   label="Hire Date"
@@ -1178,7 +1265,6 @@ const EmployeeDirectory: React.FC = () => {
           </DialogActions>
         </form>
       </Dialog>
-
       {/* Delete Confirmation Dialog */}
       <Dialog open={isDeleteDialogOpen} onClose={() => setIsDeleteDialogOpen(false)}>
         <DialogTitle>Confirm Delete</DialogTitle>
@@ -1201,7 +1287,6 @@ const EmployeeDirectory: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Employee Profile Dialog */}
       {selectedEmployee && (
         <EmployeeProfile
@@ -1211,7 +1296,6 @@ const EmployeeDirectory: React.FC = () => {
           onEdit={handleEditEmployee}
         />
       )}
-
       {/* Speed Dial for Mobile */}
       {responsive.isMobile && (
         <SpeedDial

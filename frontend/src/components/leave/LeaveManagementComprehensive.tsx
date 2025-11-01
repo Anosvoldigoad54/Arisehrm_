@@ -1085,7 +1085,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
 
         {/* Key Metrics */}
         <Grid container spacing={3} sx={{ mb: 4 }}>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <MetricCard
               title="Pending Requests"
               value={<CountUp end={metrics.pendingCount} />}
@@ -1094,7 +1099,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
               color="warning"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <MetricCard
               title="Available Days"
               value={<CountUp end={metrics.totalBalance} decimals={1} />}
@@ -1103,7 +1113,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
               color="success"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <MetricCard
               title="Used This Year"
               value={<CountUp end={metrics.usedThisYear} decimals={1} />}
@@ -1112,7 +1127,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
               color="info"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <MetricCard
               title="Approval Rate"
               value={<CountUp end={metrics.approvalRate} decimals={1} suffix="%" />}
@@ -1213,7 +1233,13 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                         request.reason?.toLowerCase().includes(searchQuery.toLowerCase())
                       )
                       .map((request) => (
-                        <Grid item xs={12} md={6} lg={4} key={request.id}>
+                        <Grid
+                          key={request.id}
+                          size={{
+                            xs: 12,
+                            md: 6,
+                            lg: 4
+                          }}>
                           <Card
                             sx={{
                               cursor: 'pointer',
@@ -1336,7 +1362,13 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
 
                   <Grid container spacing={3}>
                     {leaveBalances.map((balance) => (
-                      <Grid item xs={12} sm={6} md={4} key={balance.id}>
+                      <Grid
+                        key={balance.id}
+                        size={{
+                          xs: 12,
+                          sm: 6,
+                          md: 4
+                        }}>
                         <Card>
                           <CardContent>
                             <Stack spacing={2}>
@@ -1465,7 +1497,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                   </Typography>
 
                   <Grid container spacing={3}>
-                    <Grid item xs={12} lg={8}>
+                    <Grid
+                      size={{
+                        xs: 12,
+                        lg: 8
+                      }}>
                       <Card>
                         <CardContent>
                           <Typography variant="h6" sx={{ mb: 2 }}>
@@ -1498,7 +1534,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                       </Card>
                     </Grid>
 
-                    <Grid item xs={12} lg={4}>
+                    <Grid
+                      size={{
+                        xs: 12,
+                        lg: 4
+                      }}>
                       <Stack spacing={3}>
                         <Card>
                           <CardContent>
@@ -1584,7 +1624,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
 
                   <Grid container spacing={3}>
                     {leaveTypes.map((type) => (
-                      <Grid item xs={12} key={type.id}>
+                      <Grid key={type.id} size={12}>
                         <Accordion>
                           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Stack direction="row" alignItems="center" spacing={2} sx={{ width: '100%' }}>
@@ -1621,7 +1661,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                           </AccordionSummary>
                           <AccordionDetails>
                             <Grid container spacing={3}>
-                              <Grid item xs={12} sm={6} md={4}>
+                              <Grid
+                                size={{
+                                  xs: 12,
+                                  sm: 6,
+                                  md: 4
+                                }}>
                                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
                                   Accrual Details
                                 </Typography>
@@ -1638,7 +1683,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                                 </Stack>
                               </Grid>
 
-                              <Grid item xs={12} sm={6} md={4}>
+                              <Grid
+                                size={{
+                                  xs: 12,
+                                  sm: 6,
+                                  md: 4
+                                }}>
                                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
                                   Request Rules
                                 </Typography>
@@ -1655,7 +1705,12 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                                 </Stack>
                               </Grid>
 
-                              <Grid item xs={12} sm={6} md={4}>
+                              <Grid
+                                size={{
+                                  xs: 12,
+                                  sm: 6,
+                                  md: 4
+                                }}>
                                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
                                   Approval Requirements
                                 </Typography>
@@ -1672,7 +1727,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                                 </Stack>
                               </Grid>
 
-                              <Grid item xs={12}>
+                              <Grid size={12}>
                                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
                                   Additional Features
                                 </Typography>
@@ -1722,7 +1777,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
           </DialogTitle>
           <DialogContent>
             <Grid container spacing={3} sx={{ mt: 1 }}>
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Leave Type</InputLabel>
                   <Select
@@ -1750,7 +1809,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                 </FormControl>
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Priority</InputLabel>
                   <Select
@@ -1766,7 +1829,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                 </FormControl>
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   type="date"
@@ -1777,7 +1844,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                 />
               </Grid>
 
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <TextField
                   fullWidth
                   type="date"
@@ -1788,7 +1859,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   label="Reason"
@@ -1798,7 +1869,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   multiline
@@ -1810,7 +1881,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <FormGroup>
                   <FormControlLabel
                     control={
@@ -1890,7 +1961,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
               </DialogTitle>
               <DialogContent>
                 <Grid container spacing={3}>
-                  <Grid item xs={12} sm={6}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      sm: 6
+                    }}>
                     <Typography variant="subtitle2" sx={{ mb: 1 }}>
                       Request Details
                     </Typography>
@@ -1910,7 +1985,11 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                     </Stack>
                   </Grid>
 
-                  <Grid item xs={12} sm={6}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      sm: 6
+                    }}>
                     <Typography variant="subtitle2" sx={{ mb: 1 }}>
                       Request Status
                     </Typography>
@@ -1952,7 +2031,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                     </Timeline>
                   </Grid>
 
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Typography variant="subtitle2" sx={{ mb: 1 }}>
                       Reason
                     </Typography>
@@ -1967,7 +2046,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
                   </Grid>
 
                   {selectedRequest.medical_certificate_required && (
-                    <Grid item xs={12}>
+                    <Grid size={12}>
                       <Alert severity="info">
                         <Typography variant="body2">
                           Medical certificate is required for this leave type.
@@ -1992,7 +2071,7 @@ export const ComprehensiveLeaveManagement: React.FC<ComprehensiveLeaveManagement
         </Dialog>
       </Box>
     </motion.div>
-  )
+  );
 }
 
 export default ComprehensiveLeaveManagement

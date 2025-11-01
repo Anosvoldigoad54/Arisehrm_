@@ -1410,7 +1410,7 @@ export function MainLayout({ children }: MainLayoutProps) {
             { icon: <Settings />, label: 'Settings', color: 'secondary', action: () => navigate('/settings') },
             { icon: <Notifications />, label: 'Announcements', color: 'error', action: () => setShowQuickActions(false) },
           ].map((action, index) => (
-            <Grid item {...responsive.getGridColumns(6, 4, 3)} key={index}>
+            <Grid key={index}>
               <div>
                 <Button
                   variant="outlined"
@@ -1467,7 +1467,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           <SidebarContent mini={sidebarMini} />
         </SidebarContainer>
       )}
-
       {/* ✅ FIXED: Enhanced Sidebar Toggle Button */}
       {!isMobile && (
         <SidebarToggleButton
@@ -1484,7 +1483,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           )}
         </SidebarToggleButton>
       )}
-
       {/* Enhanced Mobile Top Bar */}
       <MobileTopBar position="fixed">
         <Toolbar>
@@ -1529,7 +1527,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           </Stack>
         </Toolbar>
       </MobileTopBar>
-
       {/* Sidebar Backdrop for tablet/laptop when sidebar overlays content */}
       {!isMobile && isTablet && sidebarOpen && !sidebarMini && (
         <Box
@@ -1546,7 +1543,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           onClick={() => setSidebarOpen(false)}
         />
       )}
-
       {/* Mobile Drawer */}
       {isMobile && (
         <Drawer
@@ -1564,7 +1560,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           <SidebarContent />
         </Drawer>
       )}
-
       {/* ✅ FIXED: Enhanced Main Content with Theme Background */}
       <MainContent
         sidebarOpen={sidebarOpen}
@@ -1585,7 +1580,11 @@ export function MainLayout({ children }: MainLayoutProps) {
               <WelcomeCard sx={{ mb: 3 }}>
                 <CardContent sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
                   <Grid container spacing={2} alignItems="center">
-                    <Grid item xs={12} md={8}>
+                    <Grid
+                      size={{
+                        xs: 12,
+                        md: 8
+                      }}>
                       <Typography 
                         variant={isMobile ? "h5" : "h4"} 
                         sx={{ 
@@ -1641,7 +1640,12 @@ export function MainLayout({ children }: MainLayoutProps) {
                       </Stack>
                     </Grid>
                     
-                    <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'center', md: 'right' } }}>
+                    <Grid
+                      sx={{ textAlign: { xs: 'center', md: 'right' } }}
+                      size={{
+                        xs: 12,
+                        md: 4
+                      }}>
                       <Avatar
                         src={profile?.profile_photo_url}
                         sx={{ 
@@ -1716,7 +1720,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           </div>
         </Box>
       </MainContent>
-
       {/* Quick Action FABs */}
       {true && (
         <Box sx={{ 
@@ -1742,10 +1745,8 @@ export function MainLayout({ children }: MainLayoutProps) {
           </Tooltip>
         </Box>
       )}
-
       {/* Quick Actions Drawer (single instance controlled above) */}
       {/* Removed duplicate to prevent double overlay rendering */}
-
       {/* Mobile Bottom Navigation */}
       {isMobile && (
         <Paper
@@ -1800,7 +1801,6 @@ export function MainLayout({ children }: MainLayoutProps) {
           </BottomNavigation>
         </Paper>
       )}
-
       {/* ✅ NEW: Notification Center */}
       <NotificationCenter
         open={showNotifications}
@@ -1810,7 +1810,6 @@ export function MainLayout({ children }: MainLayoutProps) {
         }}
         anchorEl={notificationAnchorEl}
       />
-
       {/* ✅ NEW: Help Center */}
       <HelpCenter
         open={showHelpCenter}
@@ -1818,5 +1817,5 @@ export function MainLayout({ children }: MainLayoutProps) {
         contextualHelp={location.pathname.split('/')[1]} // Pass current route context
       />
     </Box>
-  )
+  );
 }

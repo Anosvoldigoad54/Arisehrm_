@@ -319,7 +319,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
           <Box sx={{ py: 2 }}>
             <Grid container spacing={3}>
               {/* Leave Type Selection */}
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <FormControl fullWidth>
                   <InputLabel>Leave Type</InputLabel>
                   <Select
@@ -358,7 +358,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               </Grid>
 
               {/* Date Selection */}
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <DatePicker
                   label="Start Date"
                   value={formData.start_date}
@@ -369,7 +369,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                 />
               </Grid>
 
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <DatePicker
                   label="End Date"
                   value={formData.end_date}
@@ -382,7 +382,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               </Grid>
 
               {/* Half Day Option */}
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <FormControlLabel
                   control={
                     <Switch
@@ -396,7 +396,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
 
               {/* Leave Duration Display */}
               {formData.start_date && formData.end_date && (
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Card sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
                     <CardContent sx={{ py: 2 }}>
                       <Typography variant="h6">
@@ -411,7 +411,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               )}
 
               {/* Reason */}
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   multiline
@@ -424,7 +424,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               </Grid>
 
               {/* Emergency Contact */}
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth
                   label="Emergency Contact"
@@ -435,7 +435,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               </Grid>
             </Grid>
           </Box>
-        )
+        );
 
       case 1:
         return (
@@ -443,7 +443,6 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
             <Typography variant="h6" gutterBottom>
               Conflict Analysis
             </Typography>
-            
             {loading ? (
               <Box sx={{ my: 3 }}>
                 <LinearProgress />
@@ -493,16 +492,13 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                 ))}
               </Stack>
             )}
-
             <Divider sx={{ my: 3 }} />
-
             <Typography variant="h6" gutterBottom>
               Team Coverage Analysis
             </Typography>
-            
             <Card sx={{ p: 2 }}>
               <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid size={4}>
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography variant="h4" color="success.main">
                       85%
@@ -510,7 +506,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                     <Typography variant="caption">Team Coverage</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid size={4}>
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography variant="h4" color="warning.main">
                       3
@@ -518,7 +514,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                     <Typography variant="caption">Overlapping Leaves</Typography>
                   </Box>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid size={4}>
                   <Box sx={{ textAlign: 'center' }}>
                     <Typography variant="h4" color="info.main">
                       2
@@ -529,7 +525,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               </Grid>
             </Card>
           </Box>
-        )
+        );
 
       case 2:
         return (
@@ -545,7 +541,6 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                 Add Task
               </Button>
             </Box>
-
             {delegationTasks.length === 0 ? (
               <Alert severity="info">
                 No tasks to delegate. You can proceed to the next step or add tasks that need to be handled during your absence.
@@ -566,7 +561,11 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                     </Box>
                     
                     <Grid container spacing={2}>
-                      <Grid item xs={12} md={6}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          md: 6
+                        }}>
                         <TextField
                           fullWidth
                           size="small"
@@ -575,7 +574,11 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                           onChange={(e) => updateDelegationTask(task.id, { title: e.target.value })}
                         />
                       </Grid>
-                      <Grid item xs={12} md={6}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          md: 6
+                        }}>
                         <Autocomplete
                           size="small"
                           options={teamMembers}
@@ -585,7 +588,11 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                           renderInput={(params) => <TextField {...params} label="Assign To" />}
                         />
                       </Grid>
-                      <Grid item xs={12} md={4}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          md: 4
+                        }}>
                         <FormControl fullWidth size="small">
                           <InputLabel>Priority</InputLabel>
                           <Select
@@ -599,7 +606,11 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                           </Select>
                         </FormControl>
                       </Grid>
-                      <Grid item xs={12} md={8}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          md: 8
+                        }}>
                         <DatePicker
                           label="Deadline"
                           value={task.deadline ? new Date(task.deadline) : null}
@@ -609,7 +620,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                           }}
                         />
                       </Grid>
-                      <Grid item xs={12}>
+                      <Grid size={12}>
                         <TextField
                           fullWidth
                           size="small"
@@ -625,9 +636,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                 ))}
               </Stack>
             )}
-
             <Divider sx={{ my: 3 }} />
-
             <TextField
               fullWidth
               multiline
@@ -638,7 +647,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               placeholder="Additional instructions for your team while you're away..."
             />
           </Box>
-        )
+        );
 
       case 3:
         return (
@@ -646,10 +655,13 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
             <Typography variant="h6" gutterBottom>
               Review Your Leave Request
             </Typography>
-            
             <Card sx={{ p: 3, mb: 3 }}>
               <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    md: 6
+                  }}>
                   <Typography variant="subtitle2" gutterBottom>Leave Type</Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                     <span>{getLeaveTypeInfo()?.icon}</span>
@@ -657,7 +669,11 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                   </Box>
                 </Grid>
                 
-                <Grid item xs={12} md={6}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    md: 6
+                  }}>
                   <Typography variant="subtitle2" gutterBottom>Duration</Typography>
                   <Typography sx={{ mb: 2 }}>
                     {calculateLeaveDays()} day(s)
@@ -665,27 +681,27 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                   </Typography>
                 </Grid>
                 
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Typography variant="subtitle2" gutterBottom>Dates</Typography>
                   <Typography sx={{ mb: 2 }}>
                     {formData.start_date?.toLocaleDateString()} to {formData.end_date?.toLocaleDateString()}
                   </Typography>
                 </Grid>
                 
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Typography variant="subtitle2" gutterBottom>Reason</Typography>
                   <Typography sx={{ mb: 2 }}>{formData.reason}</Typography>
                 </Grid>
                 
                 {formData.emergency_contact && (
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Typography variant="subtitle2" gutterBottom>Emergency Contact</Typography>
                     <Typography sx={{ mb: 2 }}>{formData.emergency_contact}</Typography>
                   </Grid>
                 )}
                 
                 {delegationTasks.length > 0 && (
-                  <Grid item xs={12}>
+                  <Grid size={12}>
                     <Typography variant="subtitle2" gutterBottom>Delegated Tasks</Typography>
                     <List dense>
                       {delegationTasks.map((task) => (
@@ -702,7 +718,6 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                 )}
               </Grid>
             </Card>
-
             {conflicts.length > 0 && (
               <Alert severity="warning" sx={{ mb: 2 }}>
                 <Typography variant="subtitle2">Note: This request has potential conflicts</Typography>
@@ -711,7 +726,6 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
                 </Typography>
               </Alert>
             )}
-
             <FormControlLabel
               control={
                 <Switch
@@ -722,7 +736,7 @@ export const LeaveRequestForm: React.FC<LeaveRequestFormProps> = ({
               label="Notify team members about this leave request"
             />
           </Box>
-        )
+        );
 
       default:
         return null

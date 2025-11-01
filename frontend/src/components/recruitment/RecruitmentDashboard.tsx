@@ -522,7 +522,6 @@ export function RecruitmentDashboard() {
           </Stack>
         </Stack>
       </div>
-
       {/* Search and Filters */}
       <Paper sx={{ p: responsive.getPadding(2, 3), mb: responsive.getSpacing(2, 3), borderRadius: 3 }}>
         <Stack spacing={responsive.getSpacing(2, 3)}>
@@ -578,10 +577,9 @@ export function RecruitmentDashboard() {
           </Stack>
         </Stack>
       </Paper>
-
       {/* Stats Cards */}
       <Grid container spacing={responsive.getSpacing(2, 3, 4)} mb={responsive.getSpacing(3, 4)}>
-        <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+        <Grid>
           <div>
             <Card sx={{ 
               background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.primary.main, 0.05)} 100%)`,
@@ -604,7 +602,7 @@ export function RecruitmentDashboard() {
           </div>
         </Grid>
 
-        <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+        <Grid>
           <div>
             <Card sx={{ 
               background: `linear-gradient(135deg, ${alpha(theme.palette.success.main, 0.1)} 0%, ${alpha(theme.palette.success.main, 0.05)} 100%)`,
@@ -627,7 +625,12 @@ export function RecruitmentDashboard() {
           </div>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <div>
             <Card sx={{ 
               background: `linear-gradient(135deg, ${alpha(theme.palette.warning.main, 0.1)} 0%, ${alpha(theme.palette.warning.main, 0.05)} 100%)`,
@@ -650,7 +653,12 @@ export function RecruitmentDashboard() {
           </div>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <div>
             <Card sx={{ 
               background: `linear-gradient(135deg, ${alpha(theme.palette.info.main, 0.1)} 0%, ${alpha(theme.palette.info.main, 0.05)} 100%)`,
@@ -673,7 +681,6 @@ export function RecruitmentDashboard() {
           </div>
         </Grid>
       </Grid>
-
       {/* Pipeline Filter */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -718,7 +725,6 @@ export function RecruitmentDashboard() {
           </CardContent>
         </Card>
       </motion.div>
-
       {/* Candidates Grid */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -733,7 +739,7 @@ export function RecruitmentDashboard() {
             
             <Grid container spacing={responsive.getSpacing(2, 3, 4)}>
               {filteredAndSortedCandidates.map((candidate, index) => (
-                <Grid item {...responsive.getGridColumns(12, 6, 4)} key={candidate.id}>
+                <Grid key={candidate.id}>
                   <CandidateCard
                     candidate={candidate}
                     delay={index}
@@ -760,7 +766,6 @@ export function RecruitmentDashboard() {
           </CardContent>
         </Card>
       </motion.div>
-
       {/* Candidate Detail Dialog */}
       <Dialog
         open={candidateDialogOpen}
@@ -926,7 +931,6 @@ export function RecruitmentDashboard() {
           </>
         )}
       </Dialog>
-
       {/* Job Posting Dialog */}
       <Dialog
         open={jobDialogOpen}
@@ -1009,7 +1013,7 @@ export function RecruitmentDashboard() {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default RecruitmentDashboard

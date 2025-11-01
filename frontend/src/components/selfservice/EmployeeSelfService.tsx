@@ -229,7 +229,7 @@ export function EmployeeSelfService() {
   // Personal Information Tab
   const PersonalInfoTab = () => (
     <Grid container spacing={responsive.getSpacing(2, 3, 4)}>
-      <Grid item {...responsive.getGridColumns(12, 12, 4)}>
+      <Grid>
         <Card sx={{ textAlign: 'center', p: responsive.getPadding(2, 3) }}>
           <Avatar
             sx={{
@@ -283,7 +283,7 @@ export function EmployeeSelfService() {
         </Card>
       </Grid>
 
-      <Grid item {...responsive.getGridColumns(12, 12, 8)}>
+      <Grid>
         <Card sx={{ p: responsive.getPadding(2, 3) }}>
           <Stack
             direction={responsive.getFlexDirection('column', 'row')}
@@ -305,7 +305,7 @@ export function EmployeeSelfService() {
           </Stack>
 
           <Grid container spacing={responsive.getSpacing(2, 3)}>
-            <Grid item {...responsive.getGridColumns(12, 6)}>
+            <Grid>
               <TextField
                 fullWidth
                 label="First Name"
@@ -318,7 +318,7 @@ export function EmployeeSelfService() {
                 }))}
               />
             </Grid>
-            <Grid item {...responsive.getGridColumns(12, 6)}>
+            <Grid>
               <TextField
                 fullWidth
                 label="Last Name"
@@ -331,7 +331,7 @@ export function EmployeeSelfService() {
                 }))}
               />
             </Grid>
-            <Grid item {...responsive.getGridColumns(12, 6)}>
+            <Grid>
               <TextField
                 fullWidth
                 label="Email"
@@ -345,7 +345,11 @@ export function EmployeeSelfService() {
                 }))}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Phone"
@@ -357,7 +361,7 @@ export function EmployeeSelfService() {
                 }))}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Address"
@@ -377,7 +381,11 @@ export function EmployeeSelfService() {
             Emergency Contact
           </Typography>
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Contact Name"
@@ -392,7 +400,11 @@ export function EmployeeSelfService() {
                 }))}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Relationship"
@@ -424,7 +436,11 @@ export function EmployeeSelfService() {
       </Typography>
 
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6
+          }}>
           <TextField
             fullWidth
             label="Employee ID"
@@ -432,7 +448,11 @@ export function EmployeeSelfService() {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6
+          }}>
           <TextField
             fullWidth
             label="Position"
@@ -440,7 +460,11 @@ export function EmployeeSelfService() {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6
+          }}>
           <TextField
             fullWidth
             label="Department"
@@ -448,7 +472,11 @@ export function EmployeeSelfService() {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6
+          }}>
           <TextField
             fullWidth
             label="Manager"
@@ -456,7 +484,11 @@ export function EmployeeSelfService() {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6
+          }}>
           <TextField
             fullWidth
             label="Start Date"
@@ -464,7 +496,11 @@ export function EmployeeSelfService() {
             disabled
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6
+          }}>
           <TextField
             fullWidth
             label="Employment Type"
@@ -492,7 +528,13 @@ export function EmployeeSelfService() {
 
       <Grid container spacing={3}>
         {requests.map((request) => (
-          <Grid item xs={12} md={6} lg={4} key={request.id}>
+          <Grid
+            key={request.id}
+            size={{
+              xs: 12,
+              md: 6,
+              lg: 4
+            }}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -562,7 +604,13 @@ export function EmployeeSelfService() {
 
       <Grid container spacing={3}>
         {documents.map((doc) => (
-          <Grid item xs={12} sm={6} md={4} key={doc.id}>
+          <Grid
+            key={doc.id}
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 4
+            }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -689,7 +737,11 @@ export function EmployeeSelfService() {
         <Divider />
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6
+            }}>
             <FormControl fullWidth>
               <InputLabel>Language</InputLabel>
               <Select
@@ -706,7 +758,11 @@ export function EmployeeSelfService() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6
+            }}>
             <FormControl fullWidth>
               <InputLabel>Timezone</InputLabel>
               <Select

@@ -749,10 +749,14 @@ const DocumentManagement: React.FC = () => {
           </Button>
         </Stack>
       </Stack>
-
       {/* Stats Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Total Documents"
             value={<NumberTicker value={stats.totalDocuments} />}
@@ -760,7 +764,12 @@ const DocumentManagement: React.FC = () => {
             color="primary"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Storage Used"
             value={`${stats.storageUsed}GB`}
@@ -769,7 +778,12 @@ const DocumentManagement: React.FC = () => {
             color="info"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Shared Files"
             value={<NumberTicker value={stats.sharedDocuments} />}
@@ -777,7 +791,12 @@ const DocumentManagement: React.FC = () => {
             color="success"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Pending Approvals"
             value={<NumberTicker value={stats.pendingApprovals} />}
@@ -786,7 +805,6 @@ const DocumentManagement: React.FC = () => {
           />
         </Grid>
       </Grid>
-
       {/* Breadcrumbs */}
       <Paper sx={{ p: 2, mb: 3, borderRadius: 3 }}>
         <Stack direction="row" alignItems="center" spacing={1}>
@@ -807,7 +825,6 @@ const DocumentManagement: React.FC = () => {
           )}
         </Stack>
       </Paper>
-
       {/* Toolbar */}
       <Paper sx={{ p: 3, mb: 3, borderRadius: 3 }}>
         <Stack direction="row" alignItems="center" spacing={2} justifyContent="space-between">
@@ -873,12 +890,18 @@ const DocumentManagement: React.FC = () => {
           </Stack>
         </Stack>
       </Paper>
-
       {/* Document Grid/List */}
       {viewMode === 'grid' ? (
         <Grid container spacing={3}>
           {filteredDocuments.map((document) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={document.id}>
+            <Grid
+              key={document.id}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4,
+                lg: 3
+              }}>
               <DocumentCard document={document} />
             </Grid>
           ))}
@@ -890,7 +913,6 @@ const DocumentManagement: React.FC = () => {
           ))}
         </Box>
       )}
-
       {/* Context Menu */}
       <Menu
         anchorEl={anchorEl}
@@ -967,7 +989,6 @@ const DocumentManagement: React.FC = () => {
           <ListItemText>Delete</ListItemText>
         </MenuItem>
       </Menu>
-
       {/* Document Detail Dialog */}
       <Dialog
         open={showDocumentDialog}
@@ -1001,7 +1022,7 @@ const DocumentManagement: React.FC = () => {
             <DialogContent>
               <Stack spacing={3}>
                 <Grid container spacing={2}>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Size
                     </Typography>
@@ -1009,7 +1030,7 @@ const DocumentManagement: React.FC = () => {
                       {selectedDocument.size ? formatFileSize(selectedDocument.size) : 'N/A'}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Version
                     </Typography>
@@ -1017,7 +1038,7 @@ const DocumentManagement: React.FC = () => {
                       v{selectedDocument.version}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Created by
                     </Typography>
@@ -1025,7 +1046,7 @@ const DocumentManagement: React.FC = () => {
                       {selectedDocument.createdBy.name}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Downloads
                     </Typography>
@@ -1066,7 +1087,6 @@ const DocumentManagement: React.FC = () => {
           </>
         )}
       </Dialog>
-
       {/* Speed Dial */}
       <SpeedDial
         ariaLabel="Document Actions"
@@ -1089,7 +1109,7 @@ const DocumentManagement: React.FC = () => {
         />
       </SpeedDial>
     </Box>
-  )
+  );
 }
 
 export default DocumentManagement

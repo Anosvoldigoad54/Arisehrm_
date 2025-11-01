@@ -481,7 +481,7 @@ export function OrganizationChart() {
             {/* Direct reports */}
             <Grid container spacing={2} justifyContent="center">
               {employee.direct_reports.map((report, index) => (
-                <Grid item key={report.id}>
+                <Grid key={report.id}>
                   <Box sx={{ position: 'relative' }}>
                     {employee.direct_reports!.length > 1 && (
                       <ConnectorLine sx={{ height: 30, mb: 2 }} />
@@ -548,7 +548,13 @@ export function OrganizationChart() {
                 {department.employees
                   .filter(emp => !emp.is_leadership_role)
                   .map(employee => (
-                  <Grid item xs={12} sm={6} lg={4} key={employee.id}>
+                  <Grid
+                    key={employee.id}
+                    size={{
+                      xs: 12,
+                      sm: 6,
+                      lg: 4
+                    }}>
                     <EmployeeCard employee={employee} />
                   </Grid>
                 ))}
@@ -580,7 +586,11 @@ export function OrganizationChart() {
           </DialogTitle>
           <DialogContent>
             <Grid container spacing={3}>
-              <Grid item xs={12} md={4}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 4
+                }}>
                 <Stack alignItems="center" spacing={2}>
                   <Avatar
                     src={selectedEmployee.profile_photo_url}
@@ -597,7 +607,11 @@ export function OrganizationChart() {
                   />
                 </Stack>
               </Grid>
-              <Grid item xs={12} md={8}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 8
+                }}>
                 <Stack spacing={3}>
                   <Box>
                     <Typography variant="h6" gutterBottom>

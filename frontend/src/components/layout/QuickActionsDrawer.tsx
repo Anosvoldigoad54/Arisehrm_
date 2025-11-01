@@ -83,7 +83,7 @@ export const QuickActionsDrawer: React.FC<QuickActionsDrawerProps> = ({
 
         <Grid container spacing={responsive.getSpacing(1.5, 2, 2)}>
           {quickActions.map((action, index) => (
-            <Grid item {...responsive.getGridColumns(6, 4, 3)} key={index}>
+            <Grid key={index}>
               <div>
                 <Button
                   variant="outlined"
@@ -126,6 +126,6 @@ export const QuickActionsDrawer: React.FC<QuickActionsDrawerProps> = ({
         </Grid>
       </Box>
     </SwipeableDrawer>
-  )
+  );
 }
 

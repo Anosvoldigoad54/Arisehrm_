@@ -427,7 +427,6 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           </IconButton>
         </Stack>
       </DialogTitle>
-
       <DialogContent dividers>
         <Stack spacing={3}>
           {/* Quick Search */}
@@ -553,7 +552,13 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
               <AccordionDetails>
                 <Grid container spacing={3}>
                   {groupFilters.map(filter => (
-                    <Grid item xs={12} sm={6} md={4} key={filter.id}>
+                    <Grid
+                      key={filter.id}
+                      size={{
+                        xs: 12,
+                        sm: 6,
+                        md: 4
+                      }}>
                       {renderFilter(filter)}
                     </Grid>
                   ))}
@@ -563,7 +568,6 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           ))}
         </Stack>
       </DialogContent>
-
       <DialogActions>
         <Stack direction="row" spacing={2} alignItems="center" sx={{ width: '100%' }}>
           <Button
@@ -599,7 +603,6 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           </Button>
         </Stack>
       </DialogActions>
-
       {/* Save Search Dialog */}
       <Dialog
         open={showSaveDialog}
@@ -642,7 +645,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
         </DialogActions>
       </Dialog>
     </Dialog>
-  )
+  );
 }
 
 export default AdvancedSearch

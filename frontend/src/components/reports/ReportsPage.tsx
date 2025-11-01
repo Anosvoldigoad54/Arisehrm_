@@ -262,7 +262,13 @@ export default function ReportsPage() {
           <TabPanel value={activeTab} index={0}>
             <Grid container spacing={3}>
               {summaryData.map((item) => (
-                <Grid item xs={12} sm={6} md={3} key={item.id}>
+                <Grid
+                  key={item.id}
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 3
+                  }}>
                   <Card>
                     <CardContent>
                       <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
@@ -297,7 +303,11 @@ export default function ReportsPage() {
 
             {/* Charts Section */}
             <Grid container spacing={3} sx={{ mt: 2 }}>
-              <Grid item xs={12} md={8}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 8
+                }}>
                 <Card>
                   <CardContent>
                     <Typography variant="h6" gutterBottom>
@@ -311,7 +321,11 @@ export default function ReportsPage() {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 4
+                }}>
                 <Card>
                   <CardContent>
                     <Typography variant="h6" gutterBottom>
@@ -490,5 +504,5 @@ export default function ReportsPage() {
         )}
       </Container>
     </LocalizationProvider>
-  )
+  );
 }

@@ -280,7 +280,7 @@ export const TeamHierarchyDashboard: React.FC = () => {
                 {/* Performance Metrics */}
                 {item.team.performance_metrics && (
                   <Grid container spacing={2}>
-                    <Grid item xs={4}>
+                    <Grid size={4}>
                       <Box>
                         <Typography variant="caption" color="text.secondary">
                           Productivity
@@ -295,7 +295,7 @@ export const TeamHierarchyDashboard: React.FC = () => {
                         </Typography>
                       </Box>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid size={4}>
                       <Box>
                         <Typography variant="caption" color="text.secondary">
                           Engagement
@@ -311,7 +311,7 @@ export const TeamHierarchyDashboard: React.FC = () => {
                         </Typography>
                       </Box>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid size={4}>
                       <Box>
                         <Typography variant="caption" color="text.secondary">
                           Completion Rate
@@ -463,7 +463,6 @@ export const TeamHierarchyDashboard: React.FC = () => {
             </Card>
           </Box>
         )}
-
         {/* Team Members */}
         <Box>
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
@@ -493,7 +492,13 @@ export const TeamHierarchyDashboard: React.FC = () => {
           ) : (
             <Grid container spacing={2}>
               {otherMembers.map((member) => (
-                <Grid item xs={12} sm={6} md={4} key={member.id}>
+                <Grid
+                  key={member.id}
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 4
+                  }}>
                   <Card variant="outlined" sx={{ height: '100%' }}>
                     <CardContent>
                       <Stack spacing={2}>
@@ -605,11 +610,15 @@ export const TeamHierarchyDashboard: React.FC = () => {
           </Button>
         )}
       </Stack>
-
       {/* Analytics Cards */}
       {teamAnalytics && (
         <Grid container spacing={3} sx={{ mb: 4 }}>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent>
                 <Stack direction="row" alignItems="center" spacing={2}>
@@ -629,7 +638,12 @@ export const TeamHierarchyDashboard: React.FC = () => {
             </Card>
           </Grid>
           
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent>
                 <Stack direction="row" alignItems="center" spacing={2}>
@@ -649,7 +663,12 @@ export const TeamHierarchyDashboard: React.FC = () => {
             </Card>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent>
                 <Stack direction="row" alignItems="center" spacing={2}>
@@ -669,7 +688,12 @@ export const TeamHierarchyDashboard: React.FC = () => {
             </Card>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent>
                 <Stack direction="row" alignItems="center" spacing={2}>
@@ -690,12 +714,16 @@ export const TeamHierarchyDashboard: React.FC = () => {
           </Grid>
         </Grid>
       )}
-
       {/* Search and Filters */}
       <Card sx={{ mb: 4 }}>
         <CardContent>
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4
+              }}>
               <TextField
                 fullWidth
                 label="Search Teams"
@@ -704,7 +732,12 @@ export const TeamHierarchyDashboard: React.FC = () => {
                 size="small"
               />
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4
+              }}>
               <FormControl fullWidth size="small">
                 <InputLabel>Department Filter</InputLabel>
                 <Select
@@ -721,7 +754,11 @@ export const TeamHierarchyDashboard: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 4
+              }}>
               <Stack direction="row" spacing={1} justifyContent="flex-end">
                 <Button variant="outlined" size="small">
                   Export Teams
@@ -734,7 +771,6 @@ export const TeamHierarchyDashboard: React.FC = () => {
           </Grid>
         </CardContent>
       </Card>
-
       {/* Main Content Tabs */}
       <Card>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -769,7 +805,13 @@ export const TeamHierarchyDashboard: React.FC = () => {
               </Typography>
               <Grid container spacing={3}>
                 {filteredTeams.map((team) => (
-                  <Grid item xs={12} md={6} lg={4} key={team.id}>
+                  <Grid
+                    key={team.id}
+                    size={{
+                      xs: 12,
+                      md: 6,
+                      lg: 4
+                    }}>
                     <Card 
                       variant="outlined" 
                       sx={{ 
@@ -857,7 +899,6 @@ export const TeamHierarchyDashboard: React.FC = () => {
           )}
         </CardContent>
       </Card>
-
       {/* Create/Edit Team Dialog */}
       <Dialog 
         open={teamDialogOpen} 
@@ -918,7 +959,6 @@ export const TeamHierarchyDashboard: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Assign Member Dialog */}
       <Dialog 
         open={memberDialogOpen} 

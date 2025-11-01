@@ -914,10 +914,9 @@ const TrainingDashboard: React.FC = () => {
           </Button>
         </Stack>
       </Stack>
-
       {/* Stats Cards */}
       <Grid container spacing={responsive.getSpacing(2, 3, 4)} sx={{ mb: responsive.getSpacing(3, 4) }}>
-        <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+        <Grid>
           <MetricCard
             title="Total Courses"
             value={<NumberTicker value={stats.totalCourses} />}
@@ -925,7 +924,7 @@ const TrainingDashboard: React.FC = () => {
             color="primary"
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+        <Grid>
           <MetricCard
             title="Completion Rate"
             value={<NumberTicker value={stats.completionRate} formatValue={(v) => `${v.toFixed(1)}%`} />}
@@ -933,7 +932,7 @@ const TrainingDashboard: React.FC = () => {
             color="success"
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+        <Grid>
           <MetricCard
             title="Hours Learned"
             value={<NumberTicker value={stats.totalHoursLearned} />}
@@ -941,7 +940,7 @@ const TrainingDashboard: React.FC = () => {
             color="info"
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+        <Grid>
           <MetricCard
             title="Certifications"
             value={<NumberTicker value={stats.certificationsEarned} />}
@@ -950,7 +949,6 @@ const TrainingDashboard: React.FC = () => {
           />
         </Grid>
       </Grid>
-
       {/* Tabs */}
       <Tabs
         value={activeTab}
@@ -973,14 +971,13 @@ const TrainingDashboard: React.FC = () => {
         <Tab label="Certifications" />
         <Tab label="Analytics" />
       </Tabs>
-
       {/* Course Catalog Tab */}
       {activeTab === 0 && (
         <Box>
           {/* Filters */}
           <Paper sx={{ p: responsive.getPadding(2, 3), mb: responsive.getSpacing(2, 3), borderRadius: 3 }}>
             <Grid container spacing={responsive.getSpacing(2, 2)} alignItems="center">
-              <Grid item {...responsive.getGridColumns(12, 12, 3)}>
+              <Grid>
                 <TextField
                   fullWidth
                   placeholder="Search courses..."
@@ -989,7 +986,7 @@ const TrainingDashboard: React.FC = () => {
                   size={responsive.getInputSize()}
                 />
               </Grid>
-              <Grid item {...responsive.getGridColumns(12, 6, 2)}>
+              <Grid>
                 <FormControl fullWidth size={responsive.getInputSize()}>
                   <InputLabel>Category</InputLabel>
                   <Select
@@ -1004,7 +1001,7 @@ const TrainingDashboard: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item {...responsive.getGridColumns(12, 6, 2)}>
+              <Grid>
                 <FormControl fullWidth size={responsive.getInputSize()}>
                   <InputLabel>Level</InputLabel>
                   <Select
@@ -1019,7 +1016,7 @@ const TrainingDashboard: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item {...responsive.getGridColumns(12, 6, 2)}>
+              <Grid>
                 <FormControl fullWidth size={responsive.getInputSize()}>
                   <InputLabel>Format</InputLabel>
                   <Select
@@ -1035,7 +1032,7 @@ const TrainingDashboard: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item {...responsive.getGridColumns(12, 6, 3)}>
+              <Grid>
                 <Stack
                   direction={responsive.getFlexDirection('column', 'row')}
                   spacing={responsive.getSpacing(1, 1)}
@@ -1064,19 +1061,18 @@ const TrainingDashboard: React.FC = () => {
           {/* Course Grid */}
           <Grid container spacing={responsive.getSpacing(2, 3, 4)}>
             {filteredCourses.map((course) => (
-              <Grid item {...responsive.getGridColumns(12, 6, 4)} key={course.id}>
+              <Grid key={course.id}>
                 <CourseCard course={course} />
               </Grid>
             ))}
           </Grid>
         </Box>
       )}
-
       {/* My Learning Tab */}
       {activeTab === 1 && (
         <Box>
           <Grid container spacing={responsive.getSpacing(2, 3, 4)}>
-            <Grid item {...responsive.getGridColumns(12, 12, 8)}>
+            <Grid>
               <Typography variant={responsive.getVariant('subtitle1', 'h6')} sx={{ mb: responsive.getSpacing(2, 2) }}>
                 Current Enrollments
               </Typography>
@@ -1084,7 +1080,7 @@ const TrainingDashboard: React.FC = () => {
                 <MyLearningCard key={enrollment.id} enrollment={enrollment} />
               ))}
             </Grid>
-            <Grid item {...responsive.getGridColumns(12, 12, 4)}>
+            <Grid>
               <Paper sx={{ p: responsive.getPadding(2, 3), borderRadius: 3 }}>
                 <Typography variant={responsive.getVariant('subtitle1', 'h6')} sx={{ mb: responsive.getSpacing(2, 2) }}>
                   Learning Progress
@@ -1120,7 +1116,6 @@ const TrainingDashboard: React.FC = () => {
           </Grid>
         </Box>
       )}
-
       {/* Certifications Tab */}
       {activeTab === 2 && (
         <Box>
@@ -1129,14 +1124,13 @@ const TrainingDashboard: React.FC = () => {
           </Typography>
           <Grid container spacing={responsive.getSpacing(2, 3, 4)}>
             {certifications.map((certification) => (
-              <Grid item {...responsive.getGridColumns(12, 6, 4)} key={certification.id}>
+              <Grid key={certification.id}>
                 <CertificationCard certification={certification} />
               </Grid>
             ))}
           </Grid>
         </Box>
       )}
-
       {/* Analytics Tab */}
       {activeTab === 3 && (
         <Box>
@@ -1147,7 +1141,6 @@ const TrainingDashboard: React.FC = () => {
           </Alert>
         </Box>
       )}
-
       {/* Course Detail Dialog */}
       <Dialog
         open={showCourseDialog}
@@ -1218,7 +1211,6 @@ const TrainingDashboard: React.FC = () => {
           </>
         )}
       </Dialog>
-
       {/* Speed Dial */}
       <SpeedDial
         ariaLabel="Training Actions"
@@ -1241,7 +1233,6 @@ const TrainingDashboard: React.FC = () => {
           onClick={() => setActiveTab(3)}
         />
       </SpeedDial>
-
       {/* Import Content Dialog */}
       <Dialog
         open={showImportDialog}
@@ -1340,7 +1331,7 @@ const TrainingDashboard: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default TrainingDashboard

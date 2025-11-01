@@ -83,7 +83,7 @@ export function usePermissions(): UserPermissions {
     const getRoleName = () => {
       const role = profile?.role
       if (!role) return 'Guest'
-      return role.display_name || role.displayName || role.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
+      return role.display_name || role.displayName || role.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
     }
     const isAdmin = () => hasPermission('system.admin') || hasPermission('*')
     const isHR = () => getUserRole() === 'hr_manager' || getUserRole() === 'admin'
@@ -173,7 +173,7 @@ export function useComponentAccess() {
   const getRoleName = () => {
     const role = profile?.role
     if (!role) return 'Guest'
-    return role.display_name || role.displayName || role.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
+    return role.display_name || role.displayName || role.name.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
   }
   const isAdmin = () => permissions.hasPermission('system.admin') || permissions.hasPermission('*')
   const isHR = () => getUserRole() === 'hr_manager' || getUserRole() === 'admin'

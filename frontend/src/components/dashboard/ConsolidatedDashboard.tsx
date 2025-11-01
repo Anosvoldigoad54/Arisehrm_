@@ -293,7 +293,12 @@ const ConsolidatedDashboard: React.FC = () => {
   // Render different dashboard layouts based on role
   const renderEmployeeDashboard = () => (
     <Grid container spacing={3}>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Today's Status"
           value={stats?.quickStats?.clockedIn ? "Clocked In" : "Not Clocked In"}
@@ -304,7 +309,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
       
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Active Goals"
           value={stats?.activeProjects || 0}
@@ -315,7 +325,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Leave Balance"
           value={stats?.leaveBalance?.[0]?.available || 0}
@@ -326,7 +341,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="This Month"
           value={`${stats?.quickStats?.monthHours || 0}h`}
@@ -339,7 +359,11 @@ const ConsolidatedDashboard: React.FC = () => {
 
       {/* Leave Balance Details */}
       {stats?.leaveBalance && stats.leaveBalance.length > 0 && (
-        <Grid item xs={12} md={6}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 6
+          }}>
           <Card>
             <CardContent>
               <Typography variant="h6" gutterBottom>
@@ -366,7 +390,11 @@ const ConsolidatedDashboard: React.FC = () => {
       )}
 
       {/* Quick Actions */}
-      <Grid item xs={12} md={6}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 6
+        }}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -406,7 +434,12 @@ const ConsolidatedDashboard: React.FC = () => {
 
   const renderManagerDashboard = () => (
     <Grid container spacing={3}>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Team Size"
           value={stats?.teamSize || 0}
@@ -417,7 +450,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
       
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Present Today"
           value={stats?.presentToday || 0}
@@ -428,7 +466,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Pending Approvals"
           value={stats?.pendingLeaveRequests || 0}
@@ -439,7 +482,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Attendance Rate"
           value={stats?.teamSize && stats?.presentToday 
@@ -457,7 +505,12 @@ const ConsolidatedDashboard: React.FC = () => {
 
   const renderHRDashboard = () => (
     <Grid container spacing={3}>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Total Employees"
           value={stats?.totalEmployees || 0}
@@ -468,7 +521,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
       
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Present Today"
           value={stats?.presentToday || 0}
@@ -479,7 +537,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="Pending Leaves"
           value={stats?.pendingLeaveRequests || 0}
@@ -490,7 +553,12 @@ const ConsolidatedDashboard: React.FC = () => {
         />
       </Grid>
 
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          sm: 6,
+          md: 3
+        }}>
         <MetricCard
           title="New Applications"
           value={stats?.activeProjects || 0}
@@ -526,7 +594,13 @@ const ConsolidatedDashboard: React.FC = () => {
         </Box>
         <Grid container spacing={3}>
           {[1, 2, 3, 4].map((item) => (
-            <Grid item xs={12} sm={6} md={3} key={item}>
+            <Grid
+              key={item}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3
+              }}>
               <MetricCard
                 title=""
                 value=""
@@ -537,7 +611,7 @@ const ConsolidatedDashboard: React.FC = () => {
           ))}
         </Grid>
       </Box>
-    )
+    );
   }
 
   // Error state

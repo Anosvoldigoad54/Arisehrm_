@@ -155,10 +155,16 @@ export default function HRDashboard() {
       <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
         Comprehensive HR management tools and features
       </Typography>
-
       <Grid container spacing={3}>
         {visibleModules.map((module) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={module.id}>
+          <Grid
+            key={module.id}
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 4,
+              lg: 3
+            }}>
             <Card
               sx={{
                 height: '100%',
@@ -197,7 +203,6 @@ export default function HRDashboard() {
           </Grid>
         ))}
       </Grid>
-
       {visibleModules.length === 0 && (
         <Box sx={{ textAlign: 'center', py: 8 }}>
           <Typography variant="h6" color="text.secondary">
@@ -206,5 +211,5 @@ export default function HRDashboard() {
         </Box>
       )}
     </Box>
-  )
+  );
 }

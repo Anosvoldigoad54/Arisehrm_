@@ -530,7 +530,12 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
           {showFilters && (
             <Box mt={2} pt={2} borderTop={1} borderColor="divider">
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 3
+                  }}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Department</InputLabel>
                     <Select
@@ -549,7 +554,12 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                   </FormControl>
                 </Grid>
                 
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 3
+                  }}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Status</InputLabel>
                     <Select
@@ -568,7 +578,12 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                   </FormControl>
                 </Grid>
 
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 3
+                  }}>
                   <FormControl fullWidth size="small">
                     <InputLabel>Role</InputLabel>
                     <Select
@@ -587,7 +602,12 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                   </FormControl>
                 </Grid>
 
-                <Grid item xs={12} sm={6} md={3}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 3
+                  }}>
                   <Box display="flex" gap={1}>
                     <Button onClick={clearFilters} variant="outlined" size="small" fullWidth>
                       Clear
@@ -620,7 +640,14 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
         {viewMode === 'cards' ? (
           <Grid container spacing={3}>
             {paginatedEmployees.map((employee) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={employee.id}>
+              <Grid
+                key={employee.id}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 4,
+                  lg: 3
+                }}>
                 <EmployeeCard employee={employee} />
               </Grid>
             ))}
@@ -760,7 +787,11 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                 </Box>
 
                 <Grid container spacing={3}>
-                  <Grid item xs={12} md={6}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      md: 6
+                    }}>
                     <Typography variant="h6" gutterBottom>Contact Information</Typography>
                     <Stack spacing={1}>
                       <Typography variant="body2">
@@ -779,7 +810,11 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                     </Stack>
                   </Grid>
 
-                  <Grid item xs={12} md={6}>
+                  <Grid
+                    size={{
+                      xs: 12,
+                      md: 6
+                    }}>
                     <Typography variant="h6" gutterBottom>Employment Details</Typography>
                     <Stack spacing={1}>
                       <Typography variant="body2">
@@ -803,7 +838,7 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                   </Grid>
 
                   {selectedEmployee.skills && selectedEmployee.skills.length > 0 && (
-                    <Grid item xs={12}>
+                    <Grid size={12}>
                       <Typography variant="h6" gutterBottom>Skills</Typography>
                       <Box display="flex" gap={1} flexWrap="wrap">
                         {selectedEmployee.skills.map((skill, index) => (
@@ -814,7 +849,7 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
                   )}
 
                   {selectedEmployee.emergency_contact && (
-                    <Grid item xs={12}>
+                    <Grid size={12}>
                       <Typography variant="h6" gutterBottom>Emergency Contact</Typography>
                       <Stack spacing={1}>
                         <Typography variant="body2">
@@ -844,7 +879,7 @@ const ConsolidatedEmployeeDirectory: React.FC = () => {
         </Dialog>
       </Box>
     </RouteErrorBoundary>
-  )
+  );
 }
 
 export default ConsolidatedEmployeeDirectory

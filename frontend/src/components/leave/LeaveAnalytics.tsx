@@ -287,10 +287,15 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
   const renderPatternsTab = () => (
     <Grid container spacing={3}>
       {/* Pattern Cards */}
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Grid container spacing={2}>
           {patterns.map((pattern, index) => (
-            <Grid item xs={12} md={4} key={index}>
+            <Grid
+              key={index}
+              size={{
+                xs: 12,
+                md: 4
+              }}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -359,7 +364,7 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Pattern Analysis Chart */}
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -400,7 +405,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
   const renderPredictionsTab = () => (
     <Grid container spacing={3}>
       {/* Key Metrics */}
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Prediction Accuracy"
           value="89%"
@@ -409,7 +418,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
           color="primary"
         />
       </Grid>
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Next Month Requests"
           value="22"
@@ -418,7 +431,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
           color="warning"
         />
       </Grid>
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Peak Period"
           value="December"
@@ -426,7 +443,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
           color="info"
         />
       </Grid>
-      <Grid item xs={12} md={3}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 3
+        }}>
         <MetricCard
           title="Risk Score"
           value="7.2/10"
@@ -437,10 +458,15 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Prediction Cards */}
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Grid container spacing={2}>
           {predictions.map((prediction, index) => (
-            <Grid item xs={12} md={6} key={index}>
+            <Grid
+              key={index}
+              size={{
+                xs: 12,
+                md: 6
+              }}>
               <Card>
                 <CardContent>
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
@@ -487,7 +513,7 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Seasonal Forecast Chart */}
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -528,7 +554,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
   const renderRiskAnalysisTab = () => (
     <Grid container spacing={3}>
       {/* High-Risk Employees */}
-      <Grid item xs={12} lg={8}>
+      <Grid
+        size={{
+          xs: 12,
+          lg: 8
+        }}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -596,7 +626,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Leave Distribution */}
-      <Grid item xs={12} lg={4}>
+      <Grid
+        size={{
+          xs: 12,
+          lg: 4
+        }}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -627,7 +661,7 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Team Utilization Trends */}
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -675,7 +709,7 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
 
   const renderInsightsTab = () => (
     <Grid container spacing={3}>
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Alert severity="info" sx={{ mb: 3 }}>
           <Typography variant="subtitle2" gutterBottom>
             AI-Powered Insights
@@ -688,7 +722,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Key Insights */}
-      <Grid item xs={12} md={6}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 6
+        }}>
         <Card>
           <CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
@@ -730,7 +768,11 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Recommendations */}
-      <Grid item xs={12} md={6}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 6
+        }}>
         <Card>
           <CardContent>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
@@ -765,7 +807,7 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       </Grid>
 
       {/* Predictive Models Performance */}
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
@@ -773,25 +815,41 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
             </Typography>
             
             <Grid container spacing={3} sx={{ mt: 1 }}>
-              <Grid item xs={12} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 3
+                }}>
                 <Paper sx={{ p: 2, textAlign: 'center' }}>
                   <Typography variant="h4" color="success.main">94%</Typography>
                   <Typography variant="caption">Pattern Recognition</Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 3
+                }}>
                 <Paper sx={{ p: 2, textAlign: 'center' }}>
                   <Typography variant="h4" color="primary.main">89%</Typography>
                   <Typography variant="caption">Prediction Accuracy</Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 3
+                }}>
                 <Paper sx={{ p: 2, textAlign: 'center' }}>
                   <Typography variant="h4" color="warning.main">76%</Typography>
                   <Typography variant="caption">Risk Assessment</Typography>
                 </Paper>
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 3
+                }}>
                 <Paper sx={{ p: 2, textAlign: 'center' }}>
                   <Typography variant="h4" color="info.main">91%</Typography>
                   <Typography variant="caption">Trend Analysis</Typography>
@@ -841,10 +899,8 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
           </Button>
         </Box>
       </Box>
-
       {/* Loading */}
       {loading && <LinearProgress sx={{ mb: 2 }} />}
-
       {/* Tabs */}
       <Tabs
         value={activeTab}
@@ -856,7 +912,6 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
         <Tab label="Risk Analysis" icon={<Warning />} />
         <Tab label="AI Insights" icon={<Insights />} />
       </Tabs>
-
       {/* Tab Content */}
       <TabPanel value={activeTab} index={0}>
         {renderPatternsTab()}
@@ -870,7 +925,6 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
       <TabPanel value={activeTab} index={3}>
         {renderInsightsTab()}
       </TabPanel>
-
       {/* Pattern Details Dialog */}
       <Dialog
         open={detailsDialogOpen}
@@ -884,7 +938,7 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
         <DialogContent dividers>
           {selectedPattern && (
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Typography variant="h6" gutterBottom>
                   Pattern Details
                 </Typography>
@@ -893,19 +947,19 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
                 </Typography>
               </Grid>
               
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <Typography variant="subtitle2">Frequency</Typography>
                 <Typography variant="h4" color="primary.main">
                   {selectedPattern.frequency}%
                 </Typography>
               </Grid>
               
-              <Grid item xs={6}>
+              <Grid size={6}>
                 <Typography variant="subtitle2">Risk Level</Typography>
                 <StatusChip status={selectedPattern.risk} />
               </Grid>
               
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Typography variant="subtitle2" gutterBottom>
                   Affected Employees
                 </Typography>
@@ -924,5 +978,5 @@ export const LeaveAnalytics: React.FC<LeaveAnalyticsProps> = ({
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }

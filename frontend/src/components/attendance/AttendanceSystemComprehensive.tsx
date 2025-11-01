@@ -284,7 +284,11 @@ const ComprehensiveAttendanceSystem: React.FC<ComprehensiveAttendanceSystemProps
       <Grid container spacing={3}>
 
         {/* Current Status */}
-        <Grid item xs={12} md={6}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 6
+          }}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant="h6" fontWeight="bold" mb={2}>Current Status</Typography>
@@ -312,7 +316,11 @@ const ComprehensiveAttendanceSystem: React.FC<ComprehensiveAttendanceSystemProps
         </Grid>
 
         {/* Location Status */}
-        <Grid item xs={12} md={6}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 6
+          }}>
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant="h6" fontWeight="bold" mb={2}>Location Status</Typography>
@@ -334,7 +342,7 @@ const ComprehensiveAttendanceSystem: React.FC<ComprehensiveAttendanceSystemProps
         </Grid>
 
         {/* Recent Attendance */}
-        <Grid item xs={12}>
+        <Grid size={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" fontWeight="bold" mb={3}>Recent Attendance</Typography>
@@ -372,7 +380,6 @@ const ComprehensiveAttendanceSystem: React.FC<ComprehensiveAttendanceSystemProps
         {/* Additional Tabs for Analytics, Corrections, Locations etc can be added similarly... */}
 
       </Grid>
-
       {/* Clock-In/Out Camera Dialog */}
       <Dialog open={isClockingIn} maxWidth="sm" fullWidth onClose={() => setIsClockingIn(false)}>
         <DialogTitle>Clock In/Out</DialogTitle>
@@ -437,9 +444,8 @@ const ComprehensiveAttendanceSystem: React.FC<ComprehensiveAttendanceSystemProps
           <Button variant="contained" onClick={submitAttendance} disabled={!currentLocation || !capturedPhoto}>Submit</Button>
         </DialogActions>
       </Dialog>
-
     </Box>
-  )
+  );
 }
 
 export default ComprehensiveAttendanceSystem

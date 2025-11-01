@@ -476,7 +476,6 @@ const ExpenseManagement: React.FC = () => {
       <Typography variant="h4" fontWeight="bold" mb={3}>
         Expense Management
       </Typography>
-
       <Card>
         <Tabs value={activeTab} onChange={(_, v) => setActiveTab(v)}>
           <Tab label="My Expenses" />
@@ -492,13 +491,12 @@ const ExpenseManagement: React.FC = () => {
           )}
         </CardContent>
       </Card>
-
       {/* Create Expense Dialog */}
       <Dialog open={openCreate} onClose={() => setOpenCreate(false)} maxWidth="md" fullWidth>
         <DialogTitle>Create Expense Claim</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Title"
@@ -506,7 +504,7 @@ const ExpenseManagement: React.FC = () => {
                 onChange={(e) => setExpenseForm({ ...expenseForm, title: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 multiline
@@ -516,7 +514,11 @@ const ExpenseManagement: React.FC = () => {
                 onChange={(e) => setExpenseForm({ ...expenseForm, description: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Category</InputLabel>
                 <Select
@@ -531,7 +533,11 @@ const ExpenseManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="number"
@@ -540,7 +546,11 @@ const ExpenseManagement: React.FC = () => {
                 onChange={(e) => setExpenseForm({ ...expenseForm, amount: parseFloat(e.target.value) })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="date"
@@ -550,7 +560,11 @@ const ExpenseManagement: React.FC = () => {
                 onChange={(e) => setExpenseForm({ ...expenseForm, expense_date: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <Button
                 variant="outlined"
                 component="label"
@@ -591,7 +605,7 @@ const ExpenseManagement: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default ExpenseManagement

@@ -311,10 +311,13 @@ export const MessagingSystem: React.FC = () => {
           Compose
         </Button>
       </Stack>
-
       <Grid container spacing={3}>
         {/* Message List */}
-        <Grid item xs={12} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 4
+          }}>
           <Card>
             <CardContent>
               <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
@@ -409,7 +412,11 @@ export const MessagingSystem: React.FC = () => {
         </Grid>
 
         {/* Message Content */}
-        <Grid item xs={12} md={8}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 8
+          }}>
           {selectedMessage ? (
             <Card>
               <CardContent>
@@ -458,13 +465,16 @@ export const MessagingSystem: React.FC = () => {
           )}
         </Grid>
       </Grid>
-
       {/* Compose Message Dialog */}
       <Dialog open={composeOpen} onClose={() => setComposeOpen(false)} maxWidth="md" fullWidth>
         <DialogTitle>Compose Message</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Recipient Type</InputLabel>
                 <Select
@@ -484,7 +494,11 @@ export const MessagingSystem: React.FC = () => {
             </Grid>
             
             {newMessage.recipient_type === 'individual' && (
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Recipient</InputLabel>
                   <Select
@@ -503,7 +517,11 @@ export const MessagingSystem: React.FC = () => {
             )}
             
             {newMessage.recipient_type === 'department' && (
-              <Grid item xs={12} sm={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6
+                }}>
                 <FormControl fullWidth>
                   <InputLabel>Department</InputLabel>
                   <Select
@@ -519,7 +537,11 @@ export const MessagingSystem: React.FC = () => {
               </Grid>
             )}
             
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Priority</InputLabel>
                 <Select
@@ -534,7 +556,7 @@ export const MessagingSystem: React.FC = () => {
               </FormControl>
             </Grid>
             
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Subject"
@@ -543,7 +565,7 @@ export const MessagingSystem: React.FC = () => {
               />
             </Grid>
             
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Message"
@@ -563,7 +585,7 @@ export const MessagingSystem: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default MessagingSystem

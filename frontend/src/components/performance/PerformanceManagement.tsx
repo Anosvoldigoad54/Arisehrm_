@@ -360,10 +360,14 @@ const PerformanceManagement: React.FC = () => {
           </Button>
         )}
       </Box>
-
       {/* Performance Overview Cards */}
       <Grid container spacing={3} mb={3}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" mb={2}>
@@ -376,7 +380,12 @@ const PerformanceManagement: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" mb={2}>
@@ -389,7 +398,12 @@ const PerformanceManagement: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" mb={2}>
@@ -402,7 +416,12 @@ const PerformanceManagement: React.FC = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" mb={2}>
@@ -416,7 +435,6 @@ const PerformanceManagement: React.FC = () => {
           </Card>
         </Grid>
       </Grid>
-
       {/* Tabs */}
       <Card>
         <Tabs value={activeTab} onChange={(_, newValue) => setActiveTab(newValue)}>
@@ -468,7 +486,11 @@ const PerformanceManagement: React.FC = () => {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Grid container spacing={2}>
-                      <Grid item xs={12} md={8}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          md: 8
+                        }}>
                         <Typography variant="body2" paragraph>
                           {goal.description}
                         </Typography>
@@ -488,7 +510,11 @@ const PerformanceManagement: React.FC = () => {
                           </Box>
                         )}
                       </Grid>
-                      <Grid item xs={12} md={4}>
+                      <Grid
+                        size={{
+                          xs: 12,
+                          md: 4
+                        }}>
                         {canEdit('performance') && goal.employee_id === profile?.employee_id && (
                           <Box>
                             <TextField
@@ -600,7 +626,13 @@ const PerformanceManagement: React.FC = () => {
                   : 0
 
                 return (
-                  <Grid item xs={12} sm={6} md={4} key={category.value}>
+                  <Grid
+                    key={category.value}
+                    size={{
+                      xs: 12,
+                      sm: 6,
+                      md: 4
+                    }}>
                     <Card>
                       <CardContent>
                         <Typography variant="h6" mb={2}>{category.label}</Typography>
@@ -621,19 +653,18 @@ const PerformanceManagement: React.FC = () => {
                       </CardContent>
                     </Card>
                   </Grid>
-                )
+                );
               })}
             </Grid>
           )}
         </CardContent>
       </Card>
-
       {/* Goal Creation Dialog */}
       <Dialog open={openGoalDialog} onClose={() => setOpenGoalDialog(false)} maxWidth="md" fullWidth>
         <DialogTitle>Create Performance Goal</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Goal Title"
@@ -642,7 +673,7 @@ const PerformanceManagement: React.FC = () => {
                 required
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 multiline
@@ -653,7 +684,11 @@ const PerformanceManagement: React.FC = () => {
                 required
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Category</InputLabel>
                 <Select
@@ -669,7 +704,11 @@ const PerformanceManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Priority</InputLabel>
                 <Select
@@ -685,7 +724,7 @@ const PerformanceManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 type="date"
@@ -710,7 +749,7 @@ const PerformanceManagement: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default PerformanceManagement

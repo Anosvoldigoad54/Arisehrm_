@@ -244,7 +244,13 @@ const TrainingManagement: React.FC = () => {
 
       <Grid container spacing={3}>
         {courses?.map((course) => (
-          <Grid item xs={12} md={6} lg={4} key={course.id}>
+          <Grid
+            key={course.id}
+            size={{
+              xs: 12,
+              md: 6,
+              lg: 4
+            }}>
             <Card>
               <CardContent>
                 <Box display="flex" justifyContent="space-between" alignItems="flex-start" mb={2}>
@@ -398,7 +404,6 @@ const TrainingManagement: React.FC = () => {
       <Typography variant="h4" fontWeight="bold" mb={3}>
         Training Management
       </Typography>
-
       <Card>
         <Tabs value={activeTab} onChange={(_, v) => setActiveTab(v)}>
           <Tab label="All Courses" />
@@ -414,13 +419,12 @@ const TrainingManagement: React.FC = () => {
           )}
         </CardContent>
       </Card>
-
       {/* Create Course Dialog */}
       <Dialog open={openCreateCourse} onClose={() => setOpenCreateCourse(false)} maxWidth="md" fullWidth>
         <DialogTitle>Create Training Course</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Course Title"
@@ -428,7 +432,7 @@ const TrainingManagement: React.FC = () => {
                 onChange={(e) => setCourseForm({ ...courseForm, title: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 multiline
@@ -438,7 +442,11 @@ const TrainingManagement: React.FC = () => {
                 onChange={(e) => setCourseForm({ ...courseForm, description: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Category</InputLabel>
                 <Select
@@ -453,7 +461,11 @@ const TrainingManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="number"
@@ -462,7 +474,11 @@ const TrainingManagement: React.FC = () => {
                 onChange={(e) => setCourseForm({ ...courseForm, duration_hours: parseInt(e.target.value) })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Instructor"
@@ -470,7 +486,11 @@ const TrainingManagement: React.FC = () => {
                 onChange={(e) => setCourseForm({ ...courseForm, instructor: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="number"
@@ -479,7 +499,11 @@ const TrainingManagement: React.FC = () => {
                 onChange={(e) => setCourseForm({ ...courseForm, max_participants: parseInt(e.target.value) })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="date"
@@ -489,7 +513,11 @@ const TrainingManagement: React.FC = () => {
                 onChange={(e) => setCourseForm({ ...courseForm, start_date: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="date"
@@ -513,7 +541,7 @@ const TrainingManagement: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default TrainingManagement

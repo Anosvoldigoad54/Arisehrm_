@@ -335,7 +335,7 @@ export function PayrollDashboard() {
           const value = row[header as keyof typeof row]
           return typeof value === 'string' && (value.includes(',') || value.includes('"'))
             ? `"${value.replace(/"/g, '""')}"`
-            : value
+            : value;
         }).join(',')
       )
     ].join('\n')
@@ -398,10 +398,14 @@ export function PayrollDashboard() {
           </Stack>
         </Stack>
       </motion.div>
-
       {/* Stats Cards */}
       <Grid container spacing={3} mb={4}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <AnimatedMetricCard
             title="Total Payroll"
             value={stats.totalPayroll}
@@ -411,7 +415,12 @@ export function PayrollDashboard() {
             prefix="$"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <AnimatedMetricCard
             title="Active Employees"
             value={stats.employeeCount}
@@ -419,7 +428,12 @@ export function PayrollDashboard() {
             color="success"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <AnimatedMetricCard
             title="Average Salary"
             value={stats.avgSalary}
@@ -429,7 +443,12 @@ export function PayrollDashboard() {
             prefix="$"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <AnimatedMetricCard
             title="Pending Approvals"
             value={stats.pendingApprovals}
@@ -438,7 +457,6 @@ export function PayrollDashboard() {
           />
         </Grid>
       </Grid>
-
       {/* Quick Actions */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -451,7 +469,12 @@ export function PayrollDashboard() {
               ⚡ Quick Actions
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Button
                   fullWidth
                   variant="outlined"
@@ -461,7 +484,12 @@ export function PayrollDashboard() {
                   Generate Payslips
                 </Button>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Button
                   fullWidth
                   variant="outlined"
@@ -471,7 +499,12 @@ export function PayrollDashboard() {
                   Bank Integration
                 </Button>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Button
                   fullWidth
                   variant="outlined"
@@ -481,7 +514,12 @@ export function PayrollDashboard() {
                   Tax Calculations
                 </Button>
               </Grid>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Button
                   fullWidth
                   variant="outlined"
@@ -495,7 +533,6 @@ export function PayrollDashboard() {
           </CardContent>
         </Card>
       </motion.div>
-
       {/* Payroll Records Table */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -658,7 +695,6 @@ export function PayrollDashboard() {
           </CardContent>
         </Card>
       </motion.div>
-
       {/* Process Payroll Dialog */}
       <Dialog 
         open={processDialogOpen} 
@@ -710,7 +746,6 @@ export function PayrollDashboard() {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Floating Action Button */}
       <Fab
         color="primary"
@@ -725,7 +760,7 @@ export function PayrollDashboard() {
         <Add />
       </Fab>
     </Box>
-  )
+  );
 }
 
 export default PayrollDashboard

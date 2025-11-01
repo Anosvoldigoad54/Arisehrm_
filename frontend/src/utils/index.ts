@@ -103,7 +103,7 @@ export const camelToTitle = (str: string): string => {
   return str
     .replace(/([A-Z])/g, ' $1')
     .replace(/^./, (char) => char.toUpperCase())
-    .trim()
+    .trim();
 }
 
 export const slugify = (str: string): string => {
@@ -111,7 +111,7 @@ export const slugify = (str: string): string => {
     .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+    .replace(/^-+|-+$/g, '');
 }
 
 export const truncate = (str: string, length: number, suffix = '...'): string => {
@@ -192,7 +192,7 @@ export const isEmail = (email: string): boolean => {
 
 export const isPhone = (phone: string): boolean => {
   const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/
-  return phoneRegex.test(phone.replace(/[^\d+]/g, ''))
+  return phoneRegex.test(phone.replace(/[^\d+]/g, ''));
 }
 
 export const isStrongPassword = (password: string): boolean => {

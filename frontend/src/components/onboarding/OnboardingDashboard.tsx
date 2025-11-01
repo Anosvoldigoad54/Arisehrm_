@@ -896,10 +896,14 @@ const OnboardingDashboard: React.FC = () => {
           </Button>
         </Stack>
       </Stack>
-
       {/* Stats Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Active Processes"
             value={<NumberTicker value={stats.activeProcesses} />}
@@ -907,7 +911,12 @@ const OnboardingDashboard: React.FC = () => {
             color="primary"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Completion Rate"
             value={<NumberTicker value={stats.onTimeCompletionRate} formatValue={(v) => `${v.toFixed(1)}%`} />}
@@ -915,7 +924,12 @@ const OnboardingDashboard: React.FC = () => {
             color="success"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Avg Time (Days)"
             value={<NumberTicker value={stats.averageCompletionTime} formatValue={(v) => v.toFixed(1)} />}
@@ -923,7 +937,12 @@ const OnboardingDashboard: React.FC = () => {
             color="info"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Pending Tasks"
             value={<NumberTicker value={stats.pendingTasks} />}
@@ -932,7 +951,6 @@ const OnboardingDashboard: React.FC = () => {
           />
         </Grid>
       </Grid>
-
       {/* Tabs */}
       <Tabs
         value={activeTab}
@@ -945,11 +963,14 @@ const OnboardingDashboard: React.FC = () => {
         <Tab label="Templates" />
         <Tab label="Analytics" />
       </Tabs>
-
       {/* Filters */}
       <Paper sx={{ p: 3, mb: 3, borderRadius: 3 }}>
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              md: 3
+            }}>
             <TextField
               fullWidth
               placeholder="Search employees..."
@@ -958,7 +979,11 @@ const OnboardingDashboard: React.FC = () => {
               size="small"
             />
           </Grid>
-          <Grid item xs={6} md={2}>
+          <Grid
+            size={{
+              xs: 6,
+              md: 2
+            }}>
             <FormControl fullWidth size="small">
               <InputLabel>Status</InputLabel>
               <Select
@@ -974,7 +999,11 @@ const OnboardingDashboard: React.FC = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={6} md={2}>
+          <Grid
+            size={{
+              xs: 6,
+              md: 2
+            }}>
             <FormControl fullWidth size="small">
               <InputLabel>Type</InputLabel>
               <Select
@@ -988,7 +1017,11 @@ const OnboardingDashboard: React.FC = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={6} md={2}>
+          <Grid
+            size={{
+              xs: 6,
+              md: 2
+            }}>
             <FormControl fullWidth size="small">
               <InputLabel>Department</InputLabel>
               <Select
@@ -1004,7 +1037,11 @@ const OnboardingDashboard: React.FC = () => {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={6} md={3}>
+          <Grid
+            size={{
+              xs: 6,
+              md: 3
+            }}>
             <Stack direction="row" spacing={1}>
               <Button variant="outlined" startIcon={<Refresh />} size="small">
                 Refresh
@@ -1016,16 +1053,20 @@ const OnboardingDashboard: React.FC = () => {
           </Grid>
         </Grid>
       </Paper>
-
       {/* Process Cards */}
       <Grid container spacing={3}>
         {filteredProcesses.map((process) => (
-          <Grid item xs={12} sm={6} md={4} key={process.id}>
+          <Grid
+            key={process.id}
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 4
+            }}>
             <ProcessCard process={process} />
           </Grid>
         ))}
       </Grid>
-
       {/* Process Detail Dialog */}
       <Dialog
         open={showProcessDialog}
@@ -1058,7 +1099,11 @@ const OnboardingDashboard: React.FC = () => {
             </DialogTitle>
             <DialogContent>
               <Grid container spacing={3}>
-                <Grid item xs={12} md={4}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    md: 4
+                  }}>
                   <Paper sx={{ p: 3, borderRadius: 3 }}>
                     <Typography variant="h6" sx={{ mb: 2 }}>
                       Process Overview
@@ -1103,7 +1148,11 @@ const OnboardingDashboard: React.FC = () => {
                     </Stack>
                   </Paper>
                 </Grid>
-                <Grid item xs={12} md={8}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    md: 8
+                  }}>
                   <Typography variant="h6" sx={{ mb: 2 }}>
                     Task Timeline
                   </Typography>
@@ -1125,7 +1174,6 @@ const OnboardingDashboard: React.FC = () => {
           </>
         )}
       </Dialog>
-
       {/* Speed Dial */}
       <SpeedDial
         ariaLabel="Onboarding Actions"
@@ -1171,7 +1219,7 @@ const OnboardingDashboard: React.FC = () => {
         />
       </SpeedDial>
     </Box>
-  )
+  );
 }
 
 export default OnboardingDashboard

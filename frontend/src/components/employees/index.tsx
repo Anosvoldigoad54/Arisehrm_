@@ -1348,12 +1348,18 @@ export function EmployeeDirectory() {
           </Stack>
         </Stack>
       </SearchContainer>
-
       {/* Loading State */}
       {loading && (
         <Grid container spacing={3}>
           {Array.from({ length: 12 }).map((_, index) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+            <Grid
+              key={index}
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 4,
+                lg: 3
+              }}>
               <Card sx={{ borderRadius: 4 }}>
                 <CardContent sx={{ p: 3 }}>
                   <Stack spacing={2}>
@@ -1396,14 +1402,20 @@ export function EmployeeDirectory() {
           ))}
         </Grid>
       )}
-
       {/* Employee Grid/List */}
       {!loading && (
         <AnimatePresence mode="wait">
           {viewMode === 'grid' ? (
             <Grid container spacing={3}>
               {paginatedEmployees.map((employee, index) => (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={employee.id}>
+                <Grid
+                  key={employee.id}
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 4,
+                    lg: 3
+                  }}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1430,7 +1442,6 @@ export function EmployeeDirectory() {
           )}
         </AnimatePresence>
       )}
-
       {/* Empty State */}
       {!loading && filteredAndSortedEmployees.length === 0 && (
         <Box sx={{ textAlign: 'center', py: 8 }}>
@@ -1446,7 +1457,6 @@ export function EmployeeDirectory() {
           </Button>
         </Box>
       )}
-
       {/* Filter Drawer */}
       <Drawer
         anchor="right"
@@ -1462,7 +1472,6 @@ export function EmployeeDirectory() {
       >
         <FilterDrawer />
       </Drawer>
-
       {/* Mobile FAB for Quick Actions */}
       {isMobile && (
         <SpeedDial
@@ -1499,5 +1508,5 @@ export function EmployeeDirectory() {
         </SpeedDial>
       )}
     </Box>
-  )
+  );
 }

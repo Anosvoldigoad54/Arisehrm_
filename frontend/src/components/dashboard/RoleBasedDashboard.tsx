@@ -57,7 +57,11 @@ const EmployeeDashboard: React.FC = () => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={6}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 6
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -87,8 +91,11 @@ const EmployeeDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </Grid>
-
-      <Grid item xs={12} md={6}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 6
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -121,8 +128,7 @@ const EmployeeDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </Grid>
-
-      <Grid item xs={12}>
+      <Grid size={12}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -158,7 +164,7 @@ const EmployeeDashboard: React.FC = () => {
         </Card>
       </Grid>
     </Grid>
-  )
+  );
 }
 
 const ManagerDashboard: React.FC = () => {
@@ -202,7 +208,11 @@ const ManagerDashboard: React.FC = () => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={4}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 4
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -218,8 +228,11 @@ const ManagerDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </Grid>
-
-      <Grid item xs={12} md={4}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 4
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -235,8 +248,11 @@ const ManagerDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </Grid>
-
-      <Grid item xs={12} md={4}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 4
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -253,7 +269,7 @@ const ManagerDashboard: React.FC = () => {
         </Card>
       </Grid>
     </Grid>
-  )
+  );
 }
 
 const HRDashboard: React.FC = () => {
@@ -288,7 +304,11 @@ const HRDashboard: React.FC = () => {
 
   return (
     <Grid container spacing={3}>
-      <Grid item xs={12} md={4}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 4
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -304,8 +324,11 @@ const HRDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </Grid>
-
-      <Grid item xs={12} md={4}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 4
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -321,8 +344,11 @@ const HRDashboard: React.FC = () => {
           </CardContent>
         </Card>
       </Grid>
-
-      <Grid item xs={12} md={4}>
+      <Grid
+        size={{
+          xs: 12,
+          md: 4
+        }}>
         <Card>
           <CardContent>
             <Box display="flex" alignItems="center" mb={2}>
@@ -339,7 +365,7 @@ const HRDashboard: React.FC = () => {
         </Card>
       </Grid>
     </Grid>
-  )
+  );
 }
 
 const RoleBasedDashboard: React.FC = () => {

@@ -343,7 +343,6 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </Button>
         </Box>
       </Box>
-
       {/* Filters */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
@@ -351,7 +350,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
             Filters
           </Typography>
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3
+              }}>
               <FormControl fullWidth size="small">
                 <InputLabel>Time Range</InputLabel>
                 <Select
@@ -366,7 +370,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3
+              }}>
               <FormControl fullWidth size="small">
                 <InputLabel>Category</InputLabel>
                 <Select
@@ -383,7 +392,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3
+              }}>
               <FormControl fullWidth size="small">
                 <InputLabel>Severity</InputLabel>
                 <Select
@@ -400,7 +414,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6,
+                md: 3
+              }}>
               <TextField
                 fullWidth
                 size="small"
@@ -413,11 +432,15 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </Grid>
         </CardContent>
       </Card>
-
       {/* Statistics Cards */}
       {statistics && (
         <Grid container spacing={3} sx={{ mb: 3 }}>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent sx={{ textAlign: 'center' }}>
                 <EventNoteIcon sx={{ fontSize: 40, color: COLORS.primary, mb: 1 }} />
@@ -428,7 +451,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent sx={{ textAlign: 'center' }}>
                 <SecurityIcon sx={{ fontSize: 40, color: COLORS.error, mb: 1 }} />
@@ -439,7 +467,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent sx={{ textAlign: 'center' }}>
                 <ErrorIcon sx={{ fontSize: 40, color: COLORS.warning, mb: 1 }} />
@@ -450,7 +483,12 @@ const AuditReportsAndAnalytics: React.FC = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            size={{
+              xs: 12,
+              sm: 6,
+              md: 3
+            }}>
             <Card>
               <CardContent sx={{ textAlign: 'center' }}>
                 <SuccessIcon sx={{ fontSize: 40, color: COLORS.success, mb: 1 }} />
@@ -463,7 +501,6 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </Grid>
         </Grid>
       )}
-
       {/* Tabs */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={currentTab} onChange={handleTabChange} aria-label="audit tabs">
@@ -472,12 +509,15 @@ const AuditReportsAndAnalytics: React.FC = () => {
           <Tab icon={<SecurityIcon />} label="Security" />
         </Tabs>
       </Box>
-
       {/* Analytics Tab */}
       <TabPanel value={currentTab} index={0}>
         <Grid container spacing={3}>
           {/* Events by Severity */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            size={{
+              xs: 12,
+              md: 6
+            }}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -502,7 +542,11 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </Grid>
 
           {/* Events by Category */}
-          <Grid item xs={12} md={6}>
+          <Grid
+            size={{
+              xs: 12,
+              md: 6
+            }}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -539,7 +583,7 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </Grid>
 
           {/* Top Users */}
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Card>
               <CardContent>
                 <Typography variant="h6" gutterBottom>
@@ -576,7 +620,6 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </Grid>
         </Grid>
       </TabPanel>
-
       {/* Event Log Tab */}
       <TabPanel value={currentTab} index={1}>
         <Card>
@@ -659,7 +702,6 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </CardContent>
         </Card>
       </TabPanel>
-
       {/* Security Tab */}
       <TabPanel value={currentTab} index={2}>
         <Alert severity="warning" sx={{ mb: 2 }}>
@@ -679,7 +721,6 @@ const AuditReportsAndAnalytics: React.FC = () => {
           </CardContent>
         </Card>
       </TabPanel>
-
       {/* Event Details Dialog */}
       <Dialog
         open={detailsOpen}
@@ -696,7 +737,11 @@ const AuditReportsAndAnalytics: React.FC = () => {
         <DialogContent>
           {selectedEvent && (
             <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 6
+                }}>
                 <Typography variant="subtitle2" color="text.secondary">
                   Event ID
                 </Typography>
@@ -704,7 +749,11 @@ const AuditReportsAndAnalytics: React.FC = () => {
                   {selectedEvent.id}
                 </Typography>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 6
+                }}>
                 <Typography variant="subtitle2" color="text.secondary">
                   Timestamp
                 </Typography>
@@ -712,7 +761,7 @@ const AuditReportsAndAnalytics: React.FC = () => {
                   {format(new Date(selectedEvent.timestamp), 'PPpp')}
                 </Typography>
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Typography variant="subtitle2" color="text.secondary">
                   Description
                 </Typography>
@@ -720,7 +769,7 @@ const AuditReportsAndAnalytics: React.FC = () => {
                   {selectedEvent.description}
                 </Typography>
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <Typography variant="subtitle2" color="text.secondary">
                   User Agent
                 </Typography>

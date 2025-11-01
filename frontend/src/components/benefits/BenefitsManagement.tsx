@@ -869,10 +869,14 @@ const BenefitsManagement: React.FC = () => {
           </Button>
         </Stack>
       </Stack>
-
       {/* Stats Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Total Enrollments"
             value={<NumberTicker value={stats.totalEnrollments} />}
@@ -880,7 +884,12 @@ const BenefitsManagement: React.FC = () => {
             color="primary"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Total Benefit Cost"
             value={<NumberTicker value={stats.totalBenefitCost} formatValue={(v) => formatCurrency(v)} />}
@@ -888,7 +897,12 @@ const BenefitsManagement: React.FC = () => {
             color="success"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Utilization Rate"
             value={<NumberTicker value={stats.utilizationRate} formatValue={(v) => `${v.toFixed(1)}%`} />}
@@ -896,7 +910,12 @@ const BenefitsManagement: React.FC = () => {
             color="info"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 3
+          }}>
           <MetricCard
             title="Cost Per Employee"
             value={<NumberTicker value={stats.costPerEmployee} formatValue={(v) => formatCurrency(v)} />}
@@ -905,7 +924,6 @@ const BenefitsManagement: React.FC = () => {
           />
         </Grid>
       </Grid>
-
       {/* Tabs */}
       <Tabs
         value={activeTab}
@@ -918,14 +936,17 @@ const BenefitsManagement: React.FC = () => {
         <Tab label="Salary Bands" />
         <Tab label="Analytics" />
       </Tabs>
-
       {/* Benefit Plans Tab */}
       {activeTab === 0 && (
         <Box>
           {/* Filters */}
           <Paper sx={{ p: 3, mb: 3, borderRadius: 3 }}>
             <Grid container spacing={2} alignItems="center">
-              <Grid item xs={12} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  md: 3
+                }}>
                 <TextField
                   fullWidth
                   placeholder="Search benefit plans..."
@@ -934,7 +955,11 @@ const BenefitsManagement: React.FC = () => {
                   size="small"
                 />
               </Grid>
-              <Grid item xs={6} md={2}>
+              <Grid
+                size={{
+                  xs: 6,
+                  md: 2
+                }}>
                 <FormControl fullWidth size="small">
                   <InputLabel>Category</InputLabel>
                   <Select
@@ -951,7 +976,11 @@ const BenefitsManagement: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={6} md={2}>
+              <Grid
+                size={{
+                  xs: 6,
+                  md: 2
+                }}>
                 <FormControl fullWidth size="small">
                   <InputLabel>Type</InputLabel>
                   <Select
@@ -967,7 +996,11 @@ const BenefitsManagement: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={6} md={2}>
+              <Grid
+                size={{
+                  xs: 6,
+                  md: 2
+                }}>
                 <FormControl fullWidth size="small">
                   <InputLabel>Status</InputLabel>
                   <Select
@@ -981,7 +1014,11 @@ const BenefitsManagement: React.FC = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={6} md={3}>
+              <Grid
+                size={{
+                  xs: 6,
+                  md: 3
+                }}>
                 <Stack direction="row" spacing={1}>
                   <Button variant="outlined" startIcon={<FilterList />} size="small">
                     More Filters
@@ -997,14 +1034,19 @@ const BenefitsManagement: React.FC = () => {
           {/* Benefit Plans Grid */}
           <Grid container spacing={3}>
             {benefitPlans.map((plan) => (
-              <Grid item xs={12} sm={6} md={4} key={plan.id}>
+              <Grid
+                key={plan.id}
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 4
+                }}>
                 <BenefitPlanCard plan={plan} />
               </Grid>
             ))}
           </Grid>
         </Box>
       )}
-
       {/* Employee Benefits Tab */}
       {activeTab === 1 && (
         <Box>
@@ -1015,7 +1057,6 @@ const BenefitsManagement: React.FC = () => {
           </Alert>
         </Box>
       )}
-
       {/* Compensation Tab */}
       {activeTab === 2 && (
         <Box>
@@ -1025,7 +1066,6 @@ const BenefitsManagement: React.FC = () => {
           <CompensationHistoryTable />
         </Box>
       )}
-
       {/* Salary Bands Tab */}
       {activeTab === 3 && (
         <Box>
@@ -1097,7 +1137,6 @@ const BenefitsManagement: React.FC = () => {
           </TableContainer>
         </Box>
       )}
-
       {/* Analytics Tab */}
       {activeTab === 4 && (
         <Box>
@@ -1108,7 +1147,6 @@ const BenefitsManagement: React.FC = () => {
           </Alert>
         </Box>
       )}
-
       {/* Benefit Plan Detail Dialog */}
       <Dialog
         open={showPlanDialog}
@@ -1153,7 +1191,7 @@ const BenefitsManagement: React.FC = () => {
                 </Typography>
                 
                 <Grid container spacing={2}>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Category
                     </Typography>
@@ -1161,7 +1199,7 @@ const BenefitsManagement: React.FC = () => {
                       {selectedPlan.category}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Type
                     </Typography>
@@ -1169,7 +1207,7 @@ const BenefitsManagement: React.FC = () => {
                       {selectedPlan.type}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Provider
                     </Typography>
@@ -1177,7 +1215,7 @@ const BenefitsManagement: React.FC = () => {
                       {selectedPlan.provider}
                     </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid size={6}>
                     <Typography variant="caption" color="text.secondary">
                       Enrollment Rate
                     </Typography>
@@ -1220,7 +1258,6 @@ const BenefitsManagement: React.FC = () => {
           </>
         )}
       </Dialog>
-
       {/* Speed Dial */}
       <SpeedDial
         ariaLabel="Benefits Actions"
@@ -1242,7 +1279,7 @@ const BenefitsManagement: React.FC = () => {
         />
       </SpeedDial>
     </Box>
-  )
+  );
 }
 
 export default BenefitsManagement

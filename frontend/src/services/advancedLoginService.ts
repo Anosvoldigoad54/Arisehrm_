@@ -527,8 +527,8 @@ export class AdvancedLoginService {
   ) {
     try {
       const normalizedEmail = email.toLowerCase().trim()
-      const ipAddress = options.ipAddress || await this.getCurrentIP()
-      const deviceFingerprint = options.deviceFingerprint || await this.generateDeviceFingerprint()
+      const ipAddress = options.ipAddress || (await this.getCurrentIP())
+      const deviceFingerprint = options.deviceFingerprint || (await this.generateDeviceFingerprint())
 
       // Security assessment
       const securityAssessment = await this.assessLoginSecurity(

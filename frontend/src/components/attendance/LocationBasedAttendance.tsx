@@ -362,10 +362,13 @@ const LocationBasedAttendance: React.FC = () => {
       <Typography variant="h4" fontWeight="bold" mb={3}>
         Location-Based Attendance
       </Typography>
-
       <Grid container spacing={3}>
         {/* Current Status */}
-        <Grid item xs={12} md={6}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 6
+          }}>
           <Card>
             <CardContent>
               <Typography variant="h6" mb={2}>Current Status</Typography>
@@ -476,7 +479,11 @@ const LocationBasedAttendance: React.FC = () => {
         </Grid>
 
         {/* Allowed Locations */}
-        <Grid item xs={12} md={6}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 6
+          }}>
           <Card>
             <CardContent>
               <Typography variant="h6" mb={2}>Allowed Locations</Typography>
@@ -528,7 +535,6 @@ const LocationBasedAttendance: React.FC = () => {
           </Card>
         </Grid>
       </Grid>
-
       {/* Photo Capture Dialog */}
       <Dialog open={photoDialog} onClose={() => setPhotoDialog(false)} maxWidth="sm" fullWidth>
         <DialogTitle>
@@ -594,7 +600,7 @@ const LocationBasedAttendance: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export { LocationBasedAttendance }

@@ -516,7 +516,7 @@ export default function SuperAdminUserCreation() {
           const value = row[header as keyof typeof row]
           return typeof value === 'string' && (value.includes(',') || value.includes('"'))
             ? `"${value.replace(/"/g, '""')}"`
-            : value
+            : value;
         }).join(',')
       )
     ].join('\n')
@@ -646,10 +646,14 @@ export default function SuperAdminUserCreation() {
           </Fab>
         </Badge>
       </Stack>
-
       {/* Quick Setup Cards */}
       <Grid container spacing={responsive.getSpacing(2, 3)} sx={{ mb: responsive.getSpacing(3, 4) }}>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 4
+          }}>
           <Card 
             sx={{ 
               height: '100%', 
@@ -679,7 +683,12 @@ export default function SuperAdminUserCreation() {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 4
+          }}>
           <Card 
             sx={{ 
               height: '100%', 
@@ -709,7 +718,12 @@ export default function SuperAdminUserCreation() {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            sm: 6,
+            md: 4
+          }}>
           <Card 
             sx={{ 
               height: '100%', 
@@ -739,10 +753,13 @@ export default function SuperAdminUserCreation() {
           </Card>
         </Grid>
       </Grid>
-
       {/* Statistics Cards */}
       <Grid container spacing={responsive.getSpacing(2, 3)} sx={{ mb: responsive.getSpacing(3, 4) }}>
-        <Grid item xs={6} sm={3}>
+        <Grid
+          size={{
+            xs: 6,
+            sm: 3
+          }}>
           <Card>
             <CardContent sx={{ textAlign: 'center', py: responsive.getSpacing(2, 3) }}>
               <Typography variant="h4" color="primary" fontWeight={700}>
@@ -754,7 +771,11 @@ export default function SuperAdminUserCreation() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid
+          size={{
+            xs: 6,
+            sm: 3
+          }}>
           <Card>
             <CardContent sx={{ textAlign: 'center', py: responsive.getSpacing(2, 3) }}>
               <Typography variant="h4" color="secondary" fontWeight={700}>
@@ -766,7 +787,11 @@ export default function SuperAdminUserCreation() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid
+          size={{
+            xs: 6,
+            sm: 3
+          }}>
           <Card>
             <CardContent sx={{ textAlign: 'center', py: responsive.getSpacing(2, 3) }}>
               <Typography variant="h4" color="success.main" fontWeight={700}>
@@ -778,7 +803,11 @@ export default function SuperAdminUserCreation() {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={6} sm={3}>
+        <Grid
+          size={{
+            xs: 6,
+            sm: 3
+          }}>
           <Card>
             <CardContent sx={{ textAlign: 'center', py: responsive.getSpacing(2, 3) }}>
               <Typography variant="body2" color="text.secondary" gutterBottom>
@@ -791,7 +820,6 @@ export default function SuperAdminUserCreation() {
           </Card>
         </Grid>
       </Grid>
-
       {/* Main Content Tabs */}
       <Card>
         <Tabs 
@@ -833,7 +861,13 @@ export default function SuperAdminUserCreation() {
 
               <Grid container spacing={responsive.getSpacing(2, 3)}>
                 {templates.map((template) => (
-                  <Grid item xs={12} sm={6} md={4} key={template.id}>
+                  <Grid
+                    key={template.id}
+                    size={{
+                      xs: 12,
+                      sm: 6,
+                      md: 4
+                    }}>
                     <Card 
                       variant={selectedTemplates.includes(template.id) ? "elevation" : "outlined"}
                       sx={{ 
@@ -1019,7 +1053,12 @@ export default function SuperAdminUserCreation() {
               </Typography>
 
               <Grid container spacing={responsive.getSpacing(2, 3)}>
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 4
+                  }}>
                   <Card>
                     <CardContent>
                       <Stack spacing={2} alignItems="center" textAlign="center">
@@ -1036,7 +1075,12 @@ export default function SuperAdminUserCreation() {
                   </Card>
                 </Grid>
 
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 4
+                  }}>
                   <Card>
                     <CardContent>
                       <Stack spacing={2} alignItems="center" textAlign="center">
@@ -1053,7 +1097,12 @@ export default function SuperAdminUserCreation() {
                   </Card>
                 </Grid>
 
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid
+                  size={{
+                    xs: 12,
+                    sm: 6,
+                    md: 4
+                  }}>
                   <Card>
                     <CardContent>
                       <Stack spacing={2} alignItems="center" textAlign="center">
@@ -1074,7 +1123,6 @@ export default function SuperAdminUserCreation() {
           )}
         </CardContent>
       </Card>
-
       {/* Bulk Create Dialog */}
       <Dialog
         open={showBulkCreateDialog}
@@ -1160,7 +1208,6 @@ export default function SuperAdminUserCreation() {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Add Template Dialog */}
       <Dialog
         open={showTemplateDialog}
@@ -1277,7 +1324,6 @@ export default function SuperAdminUserCreation() {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Batch Details Dialog */}
       <Dialog
         open={showBatchDetailsDialog}
@@ -1352,7 +1398,7 @@ export default function SuperAdminUserCreation() {
                   </TableHead>
                   <TableBody>
                     {selectedBatch.users.slice(0, 50).map((user) => ( // Limit to 50 for performance
-                      <TableRow key={user.employee_id}>
+                      (<TableRow key={user.employee_id}>
                         <TableCell>
                           <Typography variant="body2" fontFamily="monospace">
                             {user.employee_id}
@@ -1384,7 +1430,7 @@ export default function SuperAdminUserCreation() {
                             color="success" 
                           />
                         </TableCell>
-                      </TableRow>
+                      </TableRow>)
                     ))}
                   </TableBody>
                 </Table>
@@ -1415,5 +1461,5 @@ export default function SuperAdminUserCreation() {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }

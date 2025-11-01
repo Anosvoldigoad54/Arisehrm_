@@ -533,7 +533,7 @@ const SettingsDashboard: React.FC = () => {
       </Typography>
       
       <Grid container spacing={responsive.getSpacing(2, 3)}>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Company Name"
@@ -542,7 +542,7 @@ const SettingsDashboard: React.FC = () => {
             size={responsive.getInputSize()}
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Company Email"
@@ -552,7 +552,7 @@ const SettingsDashboard: React.FC = () => {
             size={responsive.getInputSize()}
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Company Phone"
@@ -561,7 +561,7 @@ const SettingsDashboard: React.FC = () => {
             size={responsive.getInputSize()}
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <FormControl fullWidth size={responsive.getInputSize()}>
             <InputLabel>Timezone</InputLabel>
             <Select
@@ -577,7 +577,7 @@ const SettingsDashboard: React.FC = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={12}>
           <TextField
             fullWidth
             label="Company Address"
@@ -597,7 +597,7 @@ const SettingsDashboard: React.FC = () => {
       </Typography>
       
       <Grid container spacing={responsive.getSpacing(2, 3)}>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <FormControl fullWidth size={responsive.getInputSize()}>
             <InputLabel>Currency</InputLabel>
             <Select
@@ -613,7 +613,7 @@ const SettingsDashboard: React.FC = () => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <FormControl fullWidth size={responsive.getInputSize()}>
             <InputLabel>Language</InputLabel>
             <Select
@@ -684,7 +684,7 @@ const SettingsDashboard: React.FC = () => {
 
       <Grid container spacing={responsive.getSpacing(2, 3)}>
         {locations.map((location) => (
-          <Grid item {...responsive.getGridColumns(12, 6)} key={location.id}>
+          <Grid key={location.id}>
             <Card sx={{ borderRadius: 3, height: '100%' }}>
               <CardContent>
                 <Stack spacing={responsive.getSpacing(2, 2)}>
@@ -758,7 +758,7 @@ const SettingsDashboard: React.FC = () => {
       </Typography>
 
       <Grid container spacing={responsive.getSpacing(2, 3)}>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Clock-in Tolerance (minutes)"
@@ -769,7 +769,7 @@ const SettingsDashboard: React.FC = () => {
             size={responsive.getInputSize()}
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Clock-out Tolerance (minutes)"
@@ -891,7 +891,7 @@ const SettingsDashboard: React.FC = () => {
               </Typography>
               <Grid container spacing={responsive.getSpacing(1, 2)}>
                 {permissions.map((permission) => (
-                  <Grid item {...responsive.getGridColumns(12, 6, 4)} key={permission.id}>
+                  <Grid key={permission.id}>
                     <FormControlLabel
                       control={
                         <Checkbox
@@ -928,7 +928,7 @@ const SettingsDashboard: React.FC = () => {
       </Typography>
 
       <Grid container spacing={responsive.getSpacing(2, 3)}>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Minimum Password Length"
@@ -938,7 +938,7 @@ const SettingsDashboard: React.FC = () => {
             size={responsive.getInputSize()}
           />
         </Grid>
-        <Grid item {...responsive.getGridColumns(12, 6)}>
+        <Grid>
           <TextField
             fullWidth
             label="Session Timeout (minutes)"
@@ -1083,7 +1083,6 @@ const SettingsDashboard: React.FC = () => {
           Refresh
         </Button>
       </Stack>
-
       {/* Tabs */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: responsive.getSpacing(2, 3) }}>
         <Tabs
@@ -1101,7 +1100,6 @@ const SettingsDashboard: React.FC = () => {
           <Tab label="Database" icon={<Storage />} iconPosition={responsive.isMobile ? "top" : "start"} />
         </Tabs>
       </Box>
-
       {/* Tab Content */}
       <Paper sx={{ p: responsive.getPadding(2, 3), borderRadius: 3 }}>
         <AnimatePresence mode="wait">
@@ -1121,7 +1119,6 @@ const SettingsDashboard: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </Paper>
-
       {/* Location Dialog */}
       <Dialog
         open={showLocationDialog}
@@ -1160,7 +1157,7 @@ const SettingsDashboard: React.FC = () => {
               size={responsive.getInputSize()}
             />
             <Grid container spacing={responsive.getSpacing(1, 2)}>
-              <Grid item {...responsive.getGridColumns(12, 6)}>
+              <Grid>
                 <TextField
                   fullWidth
                   label="Latitude"
@@ -1170,7 +1167,7 @@ const SettingsDashboard: React.FC = () => {
                   size={responsive.getInputSize()}
                 />
               </Grid>
-              <Grid item {...responsive.getGridColumns(12, 6)}>
+              <Grid>
                 <TextField
                   fullWidth
                   label="Longitude"
@@ -1212,7 +1209,7 @@ const SettingsDashboard: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default SettingsDashboard

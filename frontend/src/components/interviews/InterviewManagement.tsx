@@ -193,7 +193,6 @@ const InterviewManagement: React.FC = () => {
           </Button>
         )}
       </Box>
-
       <Card>
         <Tabs value={activeTab} onChange={(_, v) => setActiveTab(v)}>
           <Tab label={`Upcoming (${upcoming.length})`} />
@@ -302,13 +301,16 @@ const InterviewManagement: React.FC = () => {
           )}
         </CardContent>
       </Card>
-
       {/* Schedule Dialog */}
       <Dialog open={openSchedule} onClose={() => setOpenSchedule(false)} maxWidth="md" fullWidth>
         <DialogTitle>Schedule Interview</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Candidate</InputLabel>
                 <Select
@@ -322,7 +324,11 @@ const InterviewManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Type</InputLabel>
                 <Select
@@ -334,19 +340,35 @@ const InterviewManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField fullWidth type="date" label="Date" InputLabelProps={{ shrink: true }} value={scheduleForm.date} onChange={e => setScheduleForm({ ...scheduleForm, date: e.target.value })} />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField fullWidth type="time" label="Time" InputLabelProps={{ shrink: true }} value={scheduleForm.time} onChange={e => setScheduleForm({ ...scheduleForm, time: e.target.value })} />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField fullWidth type="number" label="Duration (min)" value={scheduleForm.duration_minutes} onChange={e => setScheduleForm({ ...scheduleForm, duration_minutes: parseInt(e.target.value) || 60 })} />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField fullWidth label="Location" value={scheduleForm.location} onChange={e => setScheduleForm({ ...scheduleForm, location: e.target.value })} />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField fullWidth label="Meeting Link" value={scheduleForm.meeting_link} onChange={e => setScheduleForm({ ...scheduleForm, meeting_link: e.target.value })} />
             </Grid>
           </Grid>
@@ -361,7 +383,6 @@ const InterviewManagement: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Complete Dialog */}
       <Dialog open={openComplete} onClose={() => setOpenComplete(false)} maxWidth="sm" fullWidth>
         <DialogTitle>Complete Interview</DialogTitle>
@@ -380,7 +401,7 @@ const InterviewManagement: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default InterviewManagement

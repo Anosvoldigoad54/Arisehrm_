@@ -316,7 +316,7 @@ const ComplianceManagement: React.FC = () => {
 
       <Grid container spacing={3}>
         {policies?.map((policy) => (
-          <Grid item xs={12} key={policy.id}>
+          <Grid key={policy.id} size={12}>
             <Card 
               sx={{ 
                 border: policy.mandatory && !isAcknowledged(policy.id) ? '2px solid #ff9800' : 'none',
@@ -420,7 +420,11 @@ const ComplianceManagement: React.FC = () => {
       <Typography variant="h6" mb={3}>Compliance Dashboard</Typography>
       
       <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 4
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" gap={2} mb={2}>
@@ -437,7 +441,11 @@ const ComplianceManagement: React.FC = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 4
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" gap={2} mb={2}>
@@ -454,7 +462,11 @@ const ComplianceManagement: React.FC = () => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid
+          size={{
+            xs: 12,
+            md: 4
+          }}>
           <Card>
             <CardContent>
               <Box display="flex" alignItems="center" gap={2} mb={2}>
@@ -524,7 +536,6 @@ const ComplianceManagement: React.FC = () => {
       <Typography variant="h4" fontWeight="bold" mb={3}>
         Compliance Management
       </Typography>
-
       <Card>
         <Tabs value={activeTab} onChange={(_, v) => setActiveTab(v)}>
           <Tab label="Policies" />
@@ -540,13 +551,12 @@ const ComplianceManagement: React.FC = () => {
           )}
         </CardContent>
       </Card>
-
       {/* Create Policy Dialog */}
       <Dialog open={openCreatePolicy} onClose={() => setOpenCreatePolicy(false)} maxWidth="md" fullWidth>
         <DialogTitle>Create Policy</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Policy Title"
@@ -554,7 +564,7 @@ const ComplianceManagement: React.FC = () => {
                 onChange={(e) => setPolicyForm({ ...policyForm, title: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 multiline
@@ -564,7 +574,7 @@ const ComplianceManagement: React.FC = () => {
                 onChange={(e) => setPolicyForm({ ...policyForm, description: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 multiline
@@ -574,7 +584,11 @@ const ComplianceManagement: React.FC = () => {
                 onChange={(e) => setPolicyForm({ ...policyForm, content: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Category</InputLabel>
                 <Select
@@ -589,7 +603,11 @@ const ComplianceManagement: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Version"
@@ -597,7 +615,11 @@ const ComplianceManagement: React.FC = () => {
                 onChange={(e) => setPolicyForm({ ...policyForm, version: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="date"
@@ -607,7 +629,11 @@ const ComplianceManagement: React.FC = () => {
                 onChange={(e) => setPolicyForm({ ...policyForm, effective_date: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="date"
@@ -617,7 +643,7 @@ const ComplianceManagement: React.FC = () => {
                 onChange={(e) => setPolicyForm({ ...policyForm, expiry_date: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <FormControlLabel
                 control={
                   <Switch
@@ -641,7 +667,6 @@ const ComplianceManagement: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Policy View Dialog */}
       <Dialog open={!!selectedPolicy} onClose={() => setSelectedPolicy(null)} maxWidth="md" fullWidth>
         <DialogTitle>{selectedPolicy?.title}</DialogTitle>
@@ -667,7 +692,7 @@ const ComplianceManagement: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default ComplianceManagement

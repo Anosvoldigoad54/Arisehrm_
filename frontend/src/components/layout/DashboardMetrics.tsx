@@ -85,7 +85,11 @@ export const DashboardMetrics: React.FC<DashboardMetricsProps> = ({
       <WelcomeCard sx={{ mb: 3 }}>
         <CardContent sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
           <Grid container spacing={2} alignItems="center">
-            <Grid item xs={12} md={8}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 8
+              }}>
               <Typography 
                 variant={isMobile ? "h5" : "h4"} 
                 sx={{ 
@@ -141,7 +145,12 @@ export const DashboardMetrics: React.FC<DashboardMetricsProps> = ({
               </Stack>
             </Grid>
             
-            <Grid item xs={12} md={4} sx={{ textAlign: { xs: 'center', md: 'right' } }}>
+            <Grid
+              sx={{ textAlign: { xs: 'center', md: 'right' } }}
+              size={{
+                xs: 12,
+                md: 4
+              }}>
               <Avatar
                 src={profile?.profile_photo_url}
                 sx={{ 
@@ -181,6 +190,6 @@ export const DashboardMetrics: React.FC<DashboardMetricsProps> = ({
         </CardContent>
       </WelcomeCard>
     </Box>
-  )
+  );
 }
 

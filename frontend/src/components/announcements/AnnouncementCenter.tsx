@@ -280,10 +280,9 @@ const AnnouncementCenter: React.FC = () => {
           </Button>
         )}
       </Box>
-
       <Grid container spacing={3}>
         {announcements?.map((announcement) => (
-          <Grid item xs={12} key={announcement.id}>
+          <Grid key={announcement.id} size={12}>
             <Card 
               sx={{ 
                 border: announcement.type === 'urgent' ? '2px solid #f44336' : 'none',
@@ -378,13 +377,12 @@ const AnnouncementCenter: React.FC = () => {
           </Grid>
         ))}
       </Grid>
-
       {/* Create Announcement Dialog */}
       <Dialog open={openCreate} onClose={() => setOpenCreate(false)} maxWidth="md" fullWidth>
         <DialogTitle>Create Announcement</DialogTitle>
         <DialogContent>
           <Grid container spacing={2} sx={{ mt: 1 }}>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 label="Title"
@@ -392,7 +390,7 @@ const AnnouncementCenter: React.FC = () => {
                 onChange={(e) => setAnnouncementForm({ ...announcementForm, title: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <TextField
                 fullWidth
                 multiline
@@ -402,7 +400,11 @@ const AnnouncementCenter: React.FC = () => {
                 onChange={(e) => setAnnouncementForm({ ...announcementForm, content: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Type</InputLabel>
                 <Select
@@ -417,7 +419,11 @@ const AnnouncementCenter: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Target Audience</InputLabel>
                 <Select
@@ -431,7 +437,7 @@ const AnnouncementCenter: React.FC = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={12}>
               <FormControlLabel
                 control={
                   <Switch
@@ -445,7 +451,11 @@ const AnnouncementCenter: React.FC = () => {
                 label="Require Acknowledgment"
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="datetime-local"
@@ -455,7 +465,11 @@ const AnnouncementCenter: React.FC = () => {
                 onChange={(e) => setAnnouncementForm({ ...announcementForm, scheduled_date: e.target.value })}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 type="date"
@@ -479,7 +493,7 @@ const AnnouncementCenter: React.FC = () => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }
 
 export default AnnouncementCenter

@@ -195,7 +195,13 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
   const renderBalanceCards = () => (
     <Grid container spacing={3}>
       {balances.map((balance, index) => (
-        <Grid item xs={12} md={6} lg={4} key={balance.leaveType}>
+        <Grid
+          key={balance.leaveType}
+          size={{
+            xs: 12,
+            md: 6,
+            lg: 4
+          }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -263,7 +269,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
 
                 {/* Balance Details */}
                 <Grid container spacing={2} sx={{ mb: 2 }}>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Box sx={{ textAlign: 'center' }}>
                       <Typography variant="h5" color="success.main" fontWeight="bold">
                         {balance.available}
@@ -271,7 +277,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
                       <Typography variant="caption">Available</Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Box sx={{ textAlign: 'center' }}>
                       <Typography variant="h5" color="error.main" fontWeight="bold">
                         {balance.used}
@@ -279,7 +285,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
                       <Typography variant="caption">Used</Typography>
                     </Box>
                   </Grid>
-                  <Grid item xs={4}>
+                  <Grid size={4}>
                     <Box sx={{ textAlign: 'center' }}>
                       <Typography variant="h5" color="warning.main" fontWeight="bold">
                         {balance.pending}
@@ -447,15 +453,14 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
             </Box>
           </Box>
         </DialogTitle>
-
         <DialogContent dividers>
           <Grid container spacing={3}>
             {/* Balance Summary */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Card sx={{ bgcolor: 'primary.main', color: 'primary.contrastText' }}>
                 <CardContent>
                   <Grid container spacing={3}>
-                    <Grid item xs={3}>
+                    <Grid size={3}>
                       <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="h4" fontWeight="bold">
                           {selectedBalance.total}
@@ -465,7 +470,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
                         </Typography>
                       </Box>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid size={3}>
                       <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="h4" fontWeight="bold">
                           {selectedBalance.available}
@@ -475,7 +480,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
                         </Typography>
                       </Box>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid size={3}>
                       <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="h4" fontWeight="bold">
                           {selectedBalance.used}
@@ -485,7 +490,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
                         </Typography>
                       </Box>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid size={3}>
                       <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="h4" fontWeight="bold">
                           {selectedBalance.pending}
@@ -501,7 +506,11 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
             </Grid>
 
             {/* Accrual Information */}
-            <Grid item xs={12} md={6}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 6
+              }}>
               <Card>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -541,7 +550,11 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
             </Grid>
 
             {/* Policies & Limits */}
-            <Grid item xs={12} md={6}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 6
+              }}>
               <Card>
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
@@ -583,7 +596,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
             </Grid>
 
             {/* Usage Recommendations */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Alert severity="info">
                 <Typography variant="subtitle2" gutterBottom>
                   Usage Recommendations
@@ -600,7 +613,6 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
             </Grid>
           </Grid>
         </DialogContent>
-
         <DialogActions>
           <Button onClick={() => setDetailsDialogOpen(false)}>
             Close
@@ -618,7 +630,7 @@ export const LeaveBalanceTracker: React.FC<LeaveBalanceTrackerProps> = ({
           )}
         </DialogActions>
       </Dialog>
-    )
+    );
   }
 
   const TabPanel = ({ children, value, index }: { children: React.ReactNode, value: number, index: number }) => (

@@ -571,7 +571,7 @@ export class DatabaseService {
     }
 
     if (!filters?.type || filters.type === 'employees' || filters.type === 'all') {
-      results.employees = await this.safeFetch(
+      results.employees = (await this.safeFetch(
         supabase
           .from('user_profiles')
           .select('employee_id, first_name, last_name, email, profile_photo_url, positions(title)')
@@ -579,11 +579,11 @@ export class DatabaseService {
           .eq('is_active', true)
           .limit(searchLimit),
         'search employees'
-      ) || []
+      )) || []
     }
 
     if (!filters?.type || filters.type === 'departments' || filters.type === 'all') {
-      results.departments = await this.safeFetch(
+      results.departments = (await this.safeFetch(
         supabase
           .from('departments')
           .select('id, name, code, description')
@@ -591,11 +591,11 @@ export class DatabaseService {
           .eq('is_active', true)
           .limit(searchLimit),
         'search departments'
-      ) || []
+      )) || []
     }
 
     if (!filters?.type || filters.type === 'teams' || filters.type === 'all') {
-      results.teams = await this.safeFetch(
+      results.teams = (await this.safeFetch(
         supabase
           .from('teams')
           .select('id, name, code, description')
@@ -603,7 +603,7 @@ export class DatabaseService {
           .eq('is_active', true)
           .limit(searchLimit),
         'search teams'
-      ) || []
+      )) || []
     }
 
     return results

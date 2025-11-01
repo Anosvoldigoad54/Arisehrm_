@@ -180,7 +180,12 @@ export const Teams: React.FC = () => {
           {/* Statistics Cards */}
           {teamStats && (
             <Grid container spacing={3} sx={{ mb: 3 }}>
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
                   <CardContent>
                     <Stack direction="row" alignItems="center" spacing={2}>
@@ -200,7 +205,12 @@ export const Teams: React.FC = () => {
                 </Card>
               </Grid>
 
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
                   <CardContent>
                     <Stack direction="row" alignItems="center" spacing={2}>
@@ -220,7 +230,12 @@ export const Teams: React.FC = () => {
                 </Card>
               </Grid>
 
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
                   <CardContent>
                     <Stack direction="row" alignItems="center" spacing={2}>
@@ -240,7 +255,12 @@ export const Teams: React.FC = () => {
                 </Card>
               </Grid>
 
-              <Grid item xs={12} sm={6} md={3}>
+              <Grid
+                size={{
+                  xs: 12,
+                  sm: 6,
+                  md: 3
+                }}>
                 <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
                   <CardContent>
                     <Stack direction="row" alignItems="center" spacing={2}>
@@ -265,7 +285,11 @@ export const Teams: React.FC = () => {
           {/* Quick Actions and Notifications */}
           <Grid container spacing={3}>
             {/* Recent Activities */}
-            <Grid item xs={12} md={8}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 8
+              }}>
               <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
                 <CardContent>
                   <Typography variant="h6" fontWeight={600} gutterBottom>
@@ -306,7 +330,11 @@ export const Teams: React.FC = () => {
             </Grid>
 
             {/* Quick Actions */}
-            <Grid item xs={12} md={4}>
+            <Grid
+              size={{
+                xs: 12,
+                md: 4
+              }}>
               <Card elevation={0} sx={{ border: 1, borderColor: 'divider' }}>
                 <CardContent>
                   <Typography variant="h6" fontWeight={600} gutterBottom>
@@ -396,12 +424,10 @@ export const Teams: React.FC = () => {
           </Tabs>
         </Box>
       </Box>
-
       {/* Main Content Area */}
       <Box sx={{ px: 3, pb: 3 }}>
         {tabs[currentTab] && tabs[currentTab].component}
       </Box>
-
       {/* Floating Action Button for Quick Team Creation */}
       {canCreateTeams && (
         <Fab

@@ -335,7 +335,6 @@ export default function EmployeeManagementInterface() {
           </Button>
         </Box>
       </Box>
-
       {/* Tabs */}
       <Card>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -379,7 +378,6 @@ export default function EmployeeManagementInterface() {
           {/* Bulk operations interface would go here */}
         </TabPanel>
       </Card>
-
       {/* Create Employee Dialog */}
       <Dialog 
         open={createDialogOpen} 
@@ -396,13 +394,17 @@ export default function EmployeeManagementInterface() {
         <DialogContent>
           <Grid container spacing={3} sx={{ mt: 1 }}>
             {/* Basic Information */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Typography variant="h6" gutterBottom>
                 Basic Information
               </Typography>
             </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Email *"
@@ -413,7 +415,11 @@ export default function EmployeeManagementInterface() {
               />
             </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Phone"
@@ -422,7 +428,11 @@ export default function EmployeeManagementInterface() {
               />
             </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="First Name *"
@@ -432,7 +442,11 @@ export default function EmployeeManagementInterface() {
               />
             </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Last Name *"
@@ -443,14 +457,18 @@ export default function EmployeeManagementInterface() {
             </Grid>
 
             {/* Role and Organization */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Divider sx={{ my: 2 }} />
               <Typography variant="h6" gutterBottom>
                 Role & Organization
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Role *</InputLabel>
                 <Select
@@ -467,7 +485,11 @@ export default function EmployeeManagementInterface() {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Department</InputLabel>
                 <Select
@@ -485,7 +507,11 @@ export default function EmployeeManagementInterface() {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Position</InputLabel>
                 <Select
@@ -503,7 +529,11 @@ export default function EmployeeManagementInterface() {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Manager</InputLabel>
                 <Select
@@ -522,14 +552,18 @@ export default function EmployeeManagementInterface() {
             </Grid>
 
             {/* Employment Details */}
-            <Grid item xs={12}>
+            <Grid size={12}>
               <Divider sx={{ my: 2 }} />
               <Typography variant="h6" gutterBottom>
                 Employment Details
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <FormControl fullWidth>
                 <InputLabel>Employment Type</InputLabel>
                 <Select
@@ -545,7 +579,11 @@ export default function EmployeeManagementInterface() {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Hire Date"
@@ -556,7 +594,11 @@ export default function EmployeeManagementInterface() {
               />
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Salary"
@@ -569,7 +611,11 @@ export default function EmployeeManagementInterface() {
               />
             </Grid>
 
-            <Grid item xs={12} sm={6}>
+            <Grid
+              size={{
+                xs: 12,
+                sm: 6
+              }}>
               <TextField
                 fullWidth
                 label="Work Location"
@@ -593,7 +639,6 @@ export default function EmployeeManagementInterface() {
           </Button>
         </DialogActions>
       </Dialog>
-
       {/* Bulk Create Dialog */}
       <Dialog
         open={bulkCreateDialogOpen}
@@ -652,5 +697,5 @@ export default function EmployeeManagementInterface() {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 }

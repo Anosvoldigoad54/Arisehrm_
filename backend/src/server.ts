@@ -43,8 +43,23 @@ function authMiddleware(req: AuthenticatedRequest, res: Response, next: NextFunc
 
 app.get('/health', async (req: Request, res: Response) => {
   try {
-    await pool.query('select 1');
-    res.json({ ok: true });
+    // Test Supabase connection
+    const { data, error } = await supabase.from('user_profiles').select('count').limit(1);
+    
+    if (error) {
+      console.error('Health check error:', error);
+      return res.json({ 
+        ok: false, 
+        error: error.message,
+        supabase_configured: !!process.env.SUPABASE_URL 
+      });
+    }
+    
+    res.json({ 
+      ok: true, 
+      database: 'supabase',
+      backend_port: process.env.PORT || 4000
+    });
   } catch (e) {
     res.status(500).json({ ok: false, error: String(e) });
   }
